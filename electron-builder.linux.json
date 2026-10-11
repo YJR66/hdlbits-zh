@@ -5,7 +5,7 @@
     {"from": ".tools/linux/manifest.json", "to": "runtime-manifest.json"}
   ],
   "linux": {
-    "target": [{"target": "AppImage", "arch": ["x64"]}, {"target": "deb", "arch": ["x64"]}],
+    "target": [{"target": "AppImage", "arch": ["x64"]}, {"target": "deb", "arch": ["x64"]}, {"target": "rpm", "arch": ["x64"]}],
     "executableName": "hdlbits-zh",
     "artifactName": "HDLBits-zh-${version}-linux-x64.${ext}",
     "category": "Education",
@@ -14,5 +14,29 @@
     "synopsis": "HDLBits Chinese Verilog learning workspace",
     "desktop": {"entry": {"Name": "HDLBits 中文练习", "Terminal": "false", "StartupWMClass": "HDLBits"}}
   },
-  "deb": {"depends": ["libc6 (>= 2.35)", "libgtk-3-0", "libnss3", "libasound2", "libgbm1", "libxss1", "libxtst6", "libatspi2.0-0", "libuuid1", "libsecret-1-0", "xdg-utils"]}
+  "deb": {"depends": ["libc6 (>= 2.35)", "libgtk-3-0", "libnss3", "libasound2", "libgbm1", "libxss1", "libxtst6", "libatspi2.0-0", "libuuid1", "libsecret-1-0", "xdg-utils"]},
+  "rpm": {
+    "packageName": "hdlbits-zh-local",
+    "afterInstall": "desktop/linux/rpm-after-install.sh",
+    "afterRemove": "desktop/linux/rpm-after-remove.sh",
+    "depends": [
+      "glibc >= 2.35", "xdg-utils",
+      "libglib-2.0.so.0()(64bit)", "libgobject-2.0.so.0()(64bit)", "libgio-2.0.so.0()(64bit)",
+      "libnspr4.so()(64bit)", "libnss3.so()(64bit)", "libnssutil3.so()(64bit)", "libsmime3.so()(64bit)",
+      "libatk-1.0.so.0()(64bit)", "libatk-bridge-2.0.so.0()(64bit)", "libcups.so.2()(64bit)",
+      "libdbus-1.so.3()(64bit)", "libcairo.so.2()(64bit)", "libgtk-3.so.0()(64bit)", "libpango-1.0.so.0()(64bit)",
+      "libX11.so.6()(64bit)", "libXcomposite.so.1()(64bit)", "libXdamage.so.1()(64bit)", "libXext.so.6()(64bit)",
+      "libXfixes.so.3()(64bit)", "libXrandr.so.2()(64bit)", "libXss.so.1()(64bit)", "libXtst.so.6()(64bit)",
+      "libgbm.so.1()(64bit)", "libexpat.so.1()(64bit)", "libxcb.so.1()(64bit)", "libxkbcommon.so.0()(64bit)",
+      "libudev.so.1()(64bit)", "libasound.so.2()(64bit)", "libatspi.so.0()(64bit)", "libgcc_s.so.1()(64bit)",
+      "libuuid.so.1()(64bit)", "libsecret-1.so.0()(64bit)"
+    ],
+    "fpm": [
+      "--no-rpm-autoreqprov",
+      "--rpm-rpmbuild-define", "_build_id_links none",
+      "--rpm-attr", "4755,root,root:/opt/HDLBits/chrome-sandbox",
+      "--rpm-attr", "755,root,root:/usr/bin/hdlbits-zh",
+      "desktop/linux/hdlbits-zh.sh=/usr/bin/hdlbits-zh"
+    ]
+  }
 }

@@ -6,8 +6,9 @@ if [[ "$(uname -s)" != Linux ]]; then echo '此检查需要 Linux。' >&2; exit 
 app=${1:-release/linux-unpacked/hdlbits-zh}
 if [[ ! -x "$app" ]]; then echo "未找到可执行文件：$app" >&2; exit 1; fi
 app=$(realpath "$app")
-mkdir -p output
-report=$(realpath output)/linux-packaged-smoke.json
+report=${2:-output/linux-packaged-smoke.json}
+mkdir -p -- "$(dirname -- "$report")"
+report=$(realpath "$report")
 # Do not inherit custom Icarus paths. The package must use its own compiler.
 env -u IVERILOG_PATH -u VVP_PATH -u HDLBITS_RUNTIME_ROOT "$app" --smoke-test "$report"
 python3 - "$report" <<'PY'

@@ -16,13 +16,13 @@
 
 ### Linux 桌面版（x86_64）
 
-从 [Releases](https://github.com/YJR66/hdlbits-zh/releases/latest) 下载 Linux AppImage 或 `.deb`。两者内置 Node/Electron、题库、图像与 Linux 原生 Icarus Verilog，无需另装 Node.js、Python 或编译器，启动后可离线使用。
+从 [Releases](https://github.com/YJR66/hdlbits-zh/releases/latest) 下载 Linux AppImage、`.deb` 或 `.rpm`。三种格式均内置 Node/Electron、题库、图像与 Linux 原生 Icarus Verilog，无需另装 Node.js、Python 或编译器，启动后可离线使用。
 
 **AppImage 单文件运行：**
 
 ```bash
-chmod +x HDLBits-zh-1.1.0-linux-x64.AppImage
-./HDLBits-zh-1.1.0-linux-x64.AppImage
+chmod +x HDLBits-zh-1.1.1-linux-x64.AppImage
+./HDLBits-zh-1.1.1-linux-x64.AppImage
 ```
 
 也可在文件属性中勾选“允许作为程序执行”，之后双击启动。需要有图形桌面的 Linux x86_64；构建基线为 Ubuntu 22.04（glibc 2.35），不适用于 ARM64、Alpine/musl 或纯命令行服务器。
@@ -30,20 +30,33 @@ chmod +x HDLBits-zh-1.1.0-linux-x64.AppImage
 若系统缺少 FUSE 2，可在 Ubuntu 22.04 安装 `sudo apt install libfuse2`，或不安装 FUSE，先解压再运行：
 
 ```bash
-./HDLBits-zh-1.1.0-linux-x64.AppImage --appimage-extract
+./HDLBits-zh-1.1.1-linux-x64.AppImage --appimage-extract
 ./squashfs-root/AppRun
 ```
 
 **Ubuntu/Debian 安装包：**
 
 ```bash
-sudo apt install ./HDLBits-zh-1.1.0-linux-x64.deb
+sudo apt install ./HDLBits-zh-1.1.1-linux-x64.deb
 hdlbits-zh
 ```
 
 安装后也能从应用菜单打开“HDLBits 中文练习”。对于限制非特权用户命名空间的系统（如部分 Ubuntu 24.04 配置），优先使用 `.deb` 安装包，让系统正确配置 Electron 沙箱；不要以 root 身份启动桌面程序。
 
-AppImage 仍使用系统的图形桌面库；精简桌面系统若提示缺少 GTK/NSS/音频库，请使用 `.deb`，由包管理器处理依赖。学习记录默认保存在 `~/.config/HDLBits-Desktop`，设置 `XDG_CONFIG_HOME` 时位于该目录下的 `HDLBits-Desktop`。跨平台迁移可使用界面中的 JSON 导出/导入。
+**Fedora / RPM 系统安装包：**
+
+```bash
+sudo dnf install ./HDLBits-zh-1.1.1-linux-x64.rpm
+hdlbits-zh
+```
+
+openSUSE 使用 `sudo zypper install ./HDLBits-zh-1.1.1-linux-x64.rpm`。要求 x86_64 图形桌面、glibc 2.35 或更高版本；不适用于 glibc 较旧的 RHEL/Rocky/AlmaLinux 8、9。RPM 包暂未进行 GPG 签名，可用发布页提供的 SHA-256 校验文件核对下载内容。
+
+安装后应用菜单中同样会出现“HDLBits 中文练习”。新版本使用同样的 `dnf install ./新版本.rpm` 命令升级；卸载使用 `sudo dnf remove hdlbits-zh-local`，不会删除个人学习记录。RPM 将终端启动器、菜单图标和 Electron 沙箱辅助程序交由包管理器管理，升级时不会误删启动器。程序请以普通用户启动。
+
+v1.1.1 已在 Fedora 44 容器与 Xvfb 环境中验证 RPM 的依赖安装、普通用户启动、编译仿真、界面交互、重装和卸载；Ubuntu 22.04 上验证了三种格式的打包程序。openSUSE 尚未实机验证。
+
+AppImage 仍使用系统的图形桌面库；精简桌面系统若提示缺少 GTK/NSS/音频库，请使用对应发行版的 `.deb` 或 `.rpm`，由包管理器处理依赖。学习记录默认保存在 `~/.config/HDLBits-Desktop`，设置 `XDG_CONFIG_HOME` 时位于该目录下的 `HDLBits-Desktop`。跨平台迁移可使用界面中的 JSON 导出/导入。
 
 ### 网页版
 
@@ -118,7 +131,7 @@ tests/                   数据、后端与前端交互测试
 scripts/                 数据构建、资源准备、运行时安装与检查
 desktop/                 Electron 窗口、内部协议与打包诊断
 electron-builder.json    Windows 单文件可执行程序打包配置
-electron-builder.linux.json  Linux AppImage / deb 打包配置
+electron-builder.linux.json  Linux AppImage / deb / rpm 打包配置
 start-linux.sh           Linux 源码网页版启动入口
 .github/workflows/linux.yml  Linux 构建、测试与产物归档
 release/                 桌面版构建产物（不包含在源码归档中）
@@ -157,7 +170,7 @@ npm run desktop:pack
 
 ```bash
 sudo apt update
-sudo apt install iverilog binutils python3 libgtk-3-0 libnss3 libasound2 libgbm1 libxss1 libfuse2 xvfb xauth fonts-noto-cjk
+sudo apt install iverilog binutils python3 libgtk-3-0 libnss3 libasound2 libgbm1 libxss1 libfuse2 xvfb xauth fonts-noto-cjk rpm rpm2cpio cpio desktop-file-utils
 npm ci
 npm run desktop:runtime
 npm run linux:runtime
@@ -165,11 +178,16 @@ npm run check
 npm test
 npm run desktop:linux
 xvfb-run -a npm run desktop:smoke:linux
+xvfb-run -a npm run desktop:smoke:rpm
 ```
 
 `linux:runtime` 将系统软件包提供的 Icarus、IVL/VPI 模块、非 glibc 依赖库和许可证复制到 `.tools/linux/runtime`，并记录源代码地址及 SHA-256；不需要 root，也不修改系统文件。打包后通过独立路径加载这些文件，不依赖目标机安装的 `iverilog`。系统 glibc、图形库和内核由 Linux 发行版提供。
 
-生成的 `.AppImage` 和 `.deb` 位于 `release/`。打包诊断使用临时测试资料，检查真实编译、错误答案、VCD、编辑器提交、记录保存和参考波形；报告与截图保存在 `output/`。GitHub Actions 会在 Linux 上执行相同的构建与测试，并保存安装包及校验文件。
+生成的 `.AppImage`、`.deb` 和 `.rpm` 位于 `release/`。仅构建 RPM 可用 `npm run desktop:linux:rpm`（仍需先准备 Electron 和 Icarus 运行时；构建机需要 `rpmbuild`，由 Ubuntu 的 `rpm` 包提供）。RPM 在 Ubuntu 构建，但依赖声明使用 RPM 的共享库能力名称，不要求目标系统安装 Debian 软件包。
+
+打包诊断使用独立测试资料，检查真实编译、错误答案、VCD、编辑器提交、记录保存和参考波形；报告与截图保存在 `output/`。RPM 检查额外验证依赖、文件所有权和沙箱权限，并解包运行，不会在构建主机安装 RPM。内置的 Icarus 私有库不会注册为全局 RPM 库提供者。
+
+GitHub Actions 配置包含相同的 Linux 构建与测试、三种格式的产物归档及 SHA-256 校验；具体执行结果以 Actions 页面为准。
 
 可使用 `HDLBits-中文练习.exe --smoke-test <绝对 JSON 输出路径>` 运行打包诊断，验证内置题库、资源、真实编译和 VCD 仿真；诊断使用独立数据目录，不影响学习记录。
 

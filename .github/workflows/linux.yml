@@ -23,7 +23,7 @@ jobs:
       - name: Install Linux build and test dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y iverilog binutils libgtk-3-0 libnss3 libasound2 libgbm1 libxss1 libfuse2 xvfb xauth fonts-noto-cjk
+          sudo apt-get install -y iverilog binutils libgtk-3-0 libnss3 libasound2 libgbm1 libxss1 libfuse2 xvfb xauth fonts-noto-cjk rpm rpm2cpio cpio desktop-file-utils
       - run: npm ci
       - run: npm run desktop:runtime
       - run: npm run linux:runtime
@@ -37,16 +37,19 @@ jobs:
           cd output/appimage
           ../../release/*.AppImage --appimage-extract > /dev/null
           cd ../..
-          xvfb-run -a bash scripts/test_linux_package.sh output/appimage/squashfs-root/hdlbits-zh
+          xvfb-run -a bash scripts/test_linux_package.sh output/appimage/squashfs-root/hdlbits-zh output/linux-appimage-smoke.json
+      - name: Validate RPM metadata and test its packaged application
+        run: xvfb-run -a npm run desktop:smoke:rpm
       - name: Create checksums
-        run: cd release && sha256sum *.AppImage *.deb > SHA256SUMS-linux.txt
+        run: cd release && sha256sum *.AppImage *.deb *.rpm > SHA256SUMS-linux.txt
       - uses: actions/upload-artifact@v7
         with:
           name: HDLBits-linux-x64
           path: |
             release/*.AppImage
             release/*.deb
+            release/*.rpm
             release/SHA256SUMS-linux.txt
-            output/linux-packaged-smoke.json
-            output/linux-packaged-smoke.json.png
+            output/linux-*-smoke.json
+            output/linux-*-smoke.json.png
           if-no-files-found: error

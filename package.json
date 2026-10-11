@@ -1,6 +1,6 @@
 {
   "name": "hdlbits-zh-local",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "type": "module",
   "description": "HDLBits 风格的中文本地 Verilog 学习工作台",
@@ -13,9 +13,11 @@
     "desktop:pack": "electron-builder --config electron-builder.json --win portable --x64",
     "desktop:unpacked": "electron-builder --config electron-builder.json --win --x64 --dir",
     "linux:runtime": "python3 scripts/setup_iverilog_linux.py",
-    "desktop:linux": "electron-builder --config electron-builder.linux.json --linux AppImage deb --x64 --publish never",
+    "desktop:linux": "electron-builder --config electron-builder.linux.json --linux AppImage deb rpm --x64 --publish never",
+    "desktop:linux:rpm": "electron-builder --config electron-builder.linux.json --linux rpm --x64 --publish never",
     "desktop:linux:unpacked": "electron-builder --config electron-builder.linux.json --linux --x64 --dir --publish never",
-    "desktop:smoke:linux": "bash scripts/test_linux_package.sh"
+    "desktop:smoke:linux": "bash scripts/test_linux_package.sh",
+    "desktop:smoke:rpm": "bash scripts/test_linux_rpm.sh"
   },
   "engines": {
     "node": ">=20.11"
