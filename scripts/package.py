@@ -4,11 +4,12 @@ from zipfile import ZipFile, ZIP_DEFLATED
 
 root = Path(__file__).resolve().parent.parent
 destination = root.parent / "hdlbits-zh-source.zip"
-directories = ("dist", "data", "scripts", "tests", "desktop")
+directories = ("dist", "data", "scripts", "tests", "desktop", ".github")
 files = [root / name for name in (
-    "server.mjs", "judge.mjs", "package.json", "package-lock.json",
+    "server.mjs", "judge.mjs", "runtime.mjs", "package.json", "package-lock.json",
     "README.md", "requirements-dev.txt", "启动中文版.cmd", ".gitignore",
-    "test-results.txt", "electron-builder.json",
+    "test-results.txt", "electron-builder.json", "electron-builder.linux.json",
+    "start-linux.sh", ".gitattributes",
 )]
 for directory in directories:
     files.extend(path for path in (root / directory).rglob("*")

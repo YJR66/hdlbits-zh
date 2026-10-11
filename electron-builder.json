@@ -2,7 +2,7 @@
  "appId":"net.hdlbits.zh.desktop",
  "productName":"HDLBits",
  "directories":{"output":"release"},
- "files":["desktop/**/*","dist/**/*","server.mjs","judge.mjs","package.json","!node_modules/**/*"],
+ "files":["desktop/**/*","dist/**/*","server.mjs","judge.mjs","runtime.mjs","package.json","!node_modules/**/*"],
  "extraResources":[
   {"from":".tools/ucrt64","to":"runtime","filter":["bin/*.exe","bin/*.dll","lib/ivl/**/*","share/licenses/**/*"]},
   {"from":".tools/manifest.json","to":"runtime-manifest.json"}

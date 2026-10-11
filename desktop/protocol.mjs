@@ -32,6 +32,7 @@ export function createProtocolHandler({dist,simulate,getHealth}){
    }
    if(request.method!=='GET'&&request.method!=='HEAD')return json(405,{error:'不支持此请求方法。'});
    const decoded=decodeURIComponent(u.pathname);
+   if(decoded.includes('\\')||decoded.split('/').includes('..'))return json(403,{error:'无效路径。'});
    const target=decoded==='/'||decoded.startsWith('/wiki/')||decoded==='/mw/index.php'?'index.html':decoded.replace(/^\//,'');
    const file=path.resolve(dist,target),relative=path.relative(dist,file);
    if(!relative||relative.startsWith('..')||path.isAbsolute(relative))return json(403,{error:'无效路径。'});

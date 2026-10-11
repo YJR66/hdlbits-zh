@@ -6,15 +6,10 @@ import os from 'node:os';
 import {fileURLToPath} from 'node:url';
 import {spawn} from 'node:child_process';
 import {checkSource,makeTestbench,references} from './judge.mjs';
+import {resolveRuntime} from './runtime.mjs';
 
 const ROOT=path.dirname(fileURLToPath(import.meta.url)),DIST=path.join(ROOT,'dist');
-const runtimeRoot=process.env.HDLBITS_RUNTIME_ROOT||path.join(ROOT,'.tools','ucrt64');
-const localBin=path.join(runtimeRoot,'bin');
-const localLib=path.join(runtimeRoot,'lib','ivl');
-const bundled=process.platform==='win32'&&existsSync(path.join(localBin,'iverilog.exe'));
-const compiler=process.env.IVERILOG_PATH||(bundled?path.join(localBin,'iverilog.exe'):'iverilog');
-const runtime=process.env.VVP_PATH||(bundled?path.join(localBin,'vvp.exe'):'vvp');
-const env={...process.env,PATH:localBin+path.delimiter+process.env.PATH};
+const {compiler,runtime,compilerArgs,runtimeArgs,env}=resolveRuntime({root:ROOT});
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.json':'application/json; charset=utf-8','.png':'image/png','.svg':'image/svg+xml','.gif':'image/gif','.ico':'image/x-icon','.txt':'text/plain; charset=utf-8'};
 let busy=0;
 const activeProcesses=new Set();
@@ -43,8 +38,7 @@ export async function simulate({id,code,mode='judge'}){
  try{
   await fs.writeFile(path.join(tmp,'submission.sv'),code+'\n`default_nettype wire\n','utf8');
   if(tb) await fs.writeFile(path.join(tmp,'bench.sv'),tb.source,'utf8');
-  const args=['-g2012','-Wall','-o','program.vvp'];
-  if(bundled&&!process.env.IVERILOG_PATH) args.push('-B',localLib);
+  const args=[...compilerArgs,'-g2012','-Wall','-o','program.vvp'];
   if(tb) args.push('-s','__local_tb');
   else if(mode!=='playground') args.push('-s','top_module');
   args.push('submission.sv');if(tb)args.push('bench.sv');
@@ -52,7 +46,7 @@ export async function simulate({id,code,mode='judge'}){
   if(compiled.error==='ENOENT') return {status:'unavailable',message:'未找到 Icarus Verilog。请按 README 安装运行时，或设置 IVERILOG_PATH 与 VVP_PATH。'};
   if(compiled.code!==0||compiled.timedOut) return {status:'compile_error',message:compiled.timedOut?'编译超过时间限制。':'编译未通过。',log:compiled.output||compiled.error};
   if(!tb&&mode!=='playground') return {status:'compiled',message:'语法与模块编译通过。',log:compiled.output};
-  const executed=await runProcess(runtime,['-n','program.vvp'],tmp,5000);
+  const executed=await runProcess(runtime,[...runtimeArgs,'-n','program.vvp'],tmp,5000);
   if(executed.timedOut||executed.overflow) return {status:'runtime_error',message:executed.timedOut?'仿真超时（5 秒）。检查无限循环，或添加 $finish。':'仿真输出超过限制。',log:executed.output.slice(0,8000)};
   if(executed.code!==0) return {status:'runtime_error',message:'仿真未正常结束。',log:executed.output||executed.error};
   if(tb){
@@ -71,7 +65,7 @@ export async function simulate({id,code,mode='judge'}){
 
 const json=(res,code,data)=>{res.writeHead(code,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store'});res.end(JSON.stringify(data));};
 export async function getHealth(){
- const result=await runProcess(compiler,['-V'],os.tmpdir(),2500);
+ const result=await runProcess(compiler,[...compilerArgs,'-V'],os.tmpdir(),2500);
  return {ok:true,compiler:result.code===0,engine:'Icarus Verilog',supported:Object.keys(references),storage:'browser-local'};
 }
 export function createServer(){

@@ -1,0 +1,52 @@
+name: Linux build and test
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux-x64:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install Linux build and test dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y iverilog binutils libgtk-3-0 libnss3 libasound2 libgbm1 libxss1 libfuse2 xvfb xauth fonts-noto-cjk
+      - run: npm ci
+      - run: npm run desktop:runtime
+      - run: npm run linux:runtime
+      - run: npm run check && npm test
+      - run: npm run desktop:linux
+      - name: Test packaged application
+        run: xvfb-run -a npm run desktop:smoke:linux
+      - name: Test AppImage without requiring FUSE
+        run: |
+          mkdir -p output/appimage
+          cd output/appimage
+          ../../release/*.AppImage --appimage-extract > /dev/null
+          cd ../..
+          xvfb-run -a bash scripts/test_linux_package.sh output/appimage/squashfs-root/hdlbits-zh
+      - name: Create checksums
+        run: cd release && sha256sum *.AppImage *.deb > SHA256SUMS-linux.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: HDLBits-linux-x64
+          path: |
+            release/*.AppImage
+            release/*.deb
+            release/SHA256SUMS-linux.txt
+            output/linux-packaged-smoke.json
+            output/linux-packaged-smoke.json.png
+          if-no-files-found: error

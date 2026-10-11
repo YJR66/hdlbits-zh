@@ -39,6 +39,10 @@ async function start(){
  if(smokeReport){
   const {smokeTest}=await import(pathToFileURL(path.join(__dirname,'smoke.mjs')).href);
   const report=await smokeTest({handler,root,resourcesPath:process.resourcesPath,isPackaged:app.isPackaged,exe:app.getPath('exe'),versions:process.versions});
+  if(report.ok){
+   try{report.checks.push(...await require('./renderer-smoke.cjs')({BrowserWindow,origin:APP_ORIGIN,reportPath:path.resolve(smokeReport)}));}
+   catch(error){report.ok=false;report.error=error.stack;}
+  }
   await fs.writeFile(path.resolve(smokeReport),JSON.stringify(report,null,2));
   app.exit(report.ok?0:1);return;
  }

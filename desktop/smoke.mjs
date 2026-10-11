@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import {resolveRuntime} from '../runtime.mjs';
 
 /** CLI diagnostic runs the packaged backend without touching the user's data. */
 export async function smokeTest({handler,root,resourcesPath,isPackaged,exe,versions}){
@@ -8,6 +9,9 @@ export async function smokeTest({handler,root,resourcesPath,isPackaged,exe,versi
  const get=async url=>handler(new Request('hdlbits://app'+url));
  const run=async data=>(await handler(new Request('hdlbits://app/api/run',{method:'POST',headers:{'Content-Type':'application/json',Origin:'hdlbits://app'},body:JSON.stringify(data)}))).json();
  try{
+  const tools=resolveRuntime({root});
+  assert.equal(tools.bundled,true,'Packaged compiler must not fall back to system Icarus');
+  if(isPackaged)assert.equal(tools.runtimeRoot,path.join(resourcesPath,'runtime'));
   const health=await(await get('/api/health')).json();assert.equal(health.compiler,true);checks.push('bundled-compiler');
   for(const url of ['/wiki/Main_Page','/wiki/Step_one','/app.js','/vendor/wavedrom.min.js','/style.css'])assert.equal((await get(url)).status,200);
   const problems=await(await get('/problems.json')).json();assert.equal(problems.length,182);
