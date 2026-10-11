@@ -5,6 +5,7 @@ const {pathToFileURL}=require('node:url');
 
 const smokeIndex=process.argv.indexOf('--smoke-test');
 const smokeReport=smokeIndex>=0?process.argv[smokeIndex+1]:null;
+if(smokeReport&&process.platform==='linux')app.disableHardwareAcceleration();
 const profileIndex=process.argv.indexOf('--profile-dir');
 const testProfile=profileIndex>=0?process.argv[profileIndex+1]:null;
 const root=path.resolve(__dirname,'..');

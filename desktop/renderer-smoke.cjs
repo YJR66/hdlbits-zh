@@ -3,7 +3,7 @@ const fs=require('node:fs/promises');
 
 /** Exercise the real sandboxed renderer using an isolated smoke-test profile. */
 module.exports=async function rendererSmoke({BrowserWindow,origin,reportPath}){
- const window=new BrowserWindow({show:false,width:1280,height:900,webPreferences:{nodeIntegration:false,contextIsolation:true,sandbox:true,spellcheck:false}});
+ const window=new BrowserWindow({show:false,width:1280,height:900,backgroundColor:'#ffffff',webPreferences:{nodeIntegration:false,contextIsolation:true,sandbox:true,spellcheck:false,offscreen:true,backgroundThrottling:false}});
  const evaluate=script=>window.webContents.executeJavaScript(script);
  const waitFor=async expression=>{
   const deadline=Date.now()+15000;
@@ -22,7 +22,12 @@ module.exports=async function rendererSmoke({BrowserWindow,origin,reportPath}){
   assert.equal(await evaluate("JSON.parse(localStorage.getItem('hdlbits-zh-v1')).problems.step_one.passed"),true);
   await window.loadURL(origin+'/wiki/sim/circuit1');
   await waitFor("!!document.querySelector('.diagram svg')");
-  await fs.writeFile(reportPath+'.png',(await window.webContents.capturePage()).toPNG());
+  await evaluate('document.fonts.ready');
+  await new Promise(resolve=>setTimeout(resolve,300));
+  const image=await window.webContents.capturePage(),pixels=image.toBitmap(),colors=new Set();
+  for(let i=0;i<pixels.length;i+=4*67)colors.add(pixels.subarray(i,i+3).toString('hex'));
+  assert.ok(colors.size>16,'Renderer screenshot must contain painted content');
+  await fs.writeFile(reportPath+'.png',image.toPNG());
   return ['renderer-submit-passes','renderer-draft-and-progress-persist','renderer-reference-waveform'];
  }finally{window.destroy();}
 };

@@ -27,10 +27,11 @@ chmod +x HDLBits-zh-1.1.0-linux-x64.AppImage
 
 也可在文件属性中勾选“允许作为程序执行”，之后双击启动。需要有图形桌面的 Linux x86_64；构建基线为 Ubuntu 22.04（glibc 2.35），不适用于 ARM64、Alpine/musl 或纯命令行服务器。
 
-若系统缺少 FUSE 2，可在 Ubuntu 22.04 安装 `sudo apt install libfuse2`，或不安装 FUSE，使用 AppImage 自解压运行：
+若系统缺少 FUSE 2，可在 Ubuntu 22.04 安装 `sudo apt install libfuse2`，或不安装 FUSE，先解压再运行：
 
 ```bash
-./HDLBits-zh-1.1.0-linux-x64.AppImage --appimage-extract-and-run
+./HDLBits-zh-1.1.0-linux-x64.AppImage --appimage-extract
+./squashfs-root/AppRun
 ```
 
 **Ubuntu/Debian 安装包：**
