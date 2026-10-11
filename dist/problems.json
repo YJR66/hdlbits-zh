@@ -1,0 +1,6612 @@
+[
+  {
+    "id": "step_one",
+    "order": 1,
+    "slug": "step_one",
+    "title": "开始使用 HDLBits",
+    "titleEn": "Getting Started",
+    "description": "实现一个没有输入的模块，让输出 one 始终保持逻辑高电平（1）。在模块声明与 endmodule 之间写入电路逻辑。模块名 top_module 和端口名称必须保持不变。完成后提交测试，观察编译结果和输出采样。",
+    "source": "https://hdlbits.01xz.net/wiki/step_one",
+    "path": [
+      "开始使用"
+    ],
+    "pathEn": [
+      "Getting Started"
+    ],
+    "ports": "module top_module( output one );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "zero",
+    "order": 2,
+    "slug": "zero",
+    "title": "输出常量 0",
+    "titleEn": "Output Zero",
+    "description": "模块没有输入，唯一输出 zero 应始终为逻辑低电平。使用连续赋值描述常量输出。",
+    "source": "https://hdlbits.01xz.net/wiki/zero",
+    "path": [
+      "开始使用"
+    ],
+    "pathEn": [
+      "Getting Started"
+    ],
+    "ports": "module top_module(\n    output zero\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "wire",
+    "order": 3,
+    "slug": "wire",
+    "title": "一根导线",
+    "titleEn": "Simple wire",
+    "description": "让输出 out 随输入 in 实时变化。连续赋值 assign 描述持续存在的连接，而不是只执行一次的赋值；等号右侧是信号来源，左侧是被驱动的信号。",
+    "source": "https://hdlbits.01xz.net/wiki/wire",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module( input in, output out );",
+    "images": [
+      "/assets/3b4e781bafd6.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "wire4",
+    "order": 4,
+    "slug": "wire4",
+    "title": "四根导线",
+    "titleEn": "Four wires",
+    "description": "建立四条独立连接：a→w、b→x、c→y、c→z。一个输入可以同时驱动多个输出。连续赋值之间的书写顺序不会改变这些并行连接。",
+    "source": "https://hdlbits.01xz.net/wiki/wire4",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module( \n    input a,b,c,\n    output w,x,y,z );",
+    "images": [
+      "/assets/b870889277e5.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "notgate",
+    "order": 5,
+    "slug": "notgate",
+    "title": "非门",
+    "titleEn": "Inverter",
+    "description": "实现一个反相器：输入为 0 时输出 1，输入为 1 时输出 0。对单个位使用按位取反运算符 ~。",
+    "source": "https://hdlbits.01xz.net/wiki/notgate",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module( input in, output out );",
+    "images": [
+      "/assets/3a29953a5b45.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "andgate",
+    "order": 6,
+    "slug": "andgate",
+    "title": "与门",
+    "titleEn": "AND gate",
+    "description": "实现双输入与门。只有 a 和 b 都为 1 时，out 才为 1；其余输入组合输出 0。",
+    "source": "https://hdlbits.01xz.net/wiki/andgate",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module( \n    input a, \n    input b, \n    output out );",
+    "images": [
+      "/assets/b47f716f3247.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "norgate",
+    "order": 7,
+    "slug": "norgate",
+    "title": "或非门",
+    "titleEn": "NOR gate",
+    "description": "实现双输入或非门。先对 a、b 求或，再对结果取反。只有两个输入都为 0，输出才为 1。",
+    "source": "https://hdlbits.01xz.net/wiki/norgate",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module( \n    input a, \n    input b, \n    output out );",
+    "images": [
+      "/assets/2f6ee3b4ad10.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "xnorgate",
+    "order": 8,
+    "slug": "xnorgate",
+    "title": "同或门",
+    "titleEn": "XNOR gate",
+    "description": "实现双输入同或门。a 与 b 相同时 out=1，不同时 out=0。可对异或结果取反。",
+    "source": "https://hdlbits.01xz.net/wiki/xnorgate",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module( \n    input a, \n    input b, \n    output out );",
+    "images": [
+      "/assets/0b49f50a1a13.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "wire_decl",
+    "order": 9,
+    "slug": "wire_decl",
+    "title": "声明内部导线",
+    "titleEn": "Declaring wires",
+    "description": "按照电路图组合两个与门、一个或门和反相器。用 wire 声明中间节点，将两路与运算的结果进行或运算，分别得到 out 和它的反相输出 out_n。",
+    "source": "https://hdlbits.01xz.net/wiki/wire_decl",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "`default_nettype none\nmodule top_module(\n    input a,\n    input b,\n    input c,\n    input d,\n    output out,\n    output out_n   );",
+    "images": [
+      "/assets/230027a0a6da.png",
+      "/assets/08aab63e6a46.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "7458",
+    "order": 10,
+    "slug": "7458",
+    "title": "7458 芯片",
+    "titleEn": "7458 chip",
+    "description": "按图实现 7458 的两组与—或逻辑。p1y 是两组三输入与门结果的或；p2y 是两组双输入与门结果的或。端口前缀 p1、p2 对应不同的逻辑组。",
+    "source": "https://hdlbits.01xz.net/wiki/7458",
+    "path": [
+      "Verilog 语言",
+      "基础语法"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Basics"
+    ],
+    "ports": "module top_module ( \n    input p1a, p1b, p1c, p1d, p1e, p1f,\n    output p1y,\n    input p2a, p2b, p2c, p2d,\n    output p2y );",
+    "images": [
+      "/assets/fc989259ffef.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector0",
+    "order": 11,
+    "slug": "vector0",
+    "title": "向量基础",
+    "titleEn": "Vectors",
+    "description": "将三位输入 vec 原样送到 outv，同时把 vec[0]、vec[1]、vec[2] 分别接到 o0、o1、o2。向量把多根相关导线组织成一个有位宽的信号。",
+    "source": "https://hdlbits.01xz.net/wiki/vector0",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module ( \n    input wire [2:0] vec,\n    output wire [2:0] outv,\n    output wire o2,\n    output wire o1,\n    output wire o0  );",
+    "images": [
+      "/assets/ad3a79ca178f.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector1",
+    "order": 12,
+    "slug": "vector1",
+    "title": "向量与位段",
+    "titleEn": "Vectors in more detail",
+    "description": "把 16 位输入拆成两个 8 位输出：高字节送到 out_hi，低字节送到 out_lo。位段选择的方向应与向量声明一致；使用前显式声明中间向量，避免意外得到单比特隐式导线。",
+    "source": "https://hdlbits.01xz.net/wiki/vector1",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "`default_nettype none     \nmodule top_module( \n    input wire [15:0] in,\n    output wire [7:0] out_hi,\n    output wire [7:0] out_lo );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector2",
+    "order": 13,
+    "slug": "vector2",
+    "title": "字节顺序反转",
+    "titleEn": "Vector part select",
+    "description": "将输入 in 的四个字节逆序输出：最低字节变为最高字节，最高字节变为最低字节。每个字节内部的位顺序不变。注意这不是逐位反转。",
+    "source": "https://hdlbits.01xz.net/wiki/vector2",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module( \n    input [31:0] in,\n    output [31:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vectorgates",
+    "order": 14,
+    "slug": "vectorgates",
+    "title": "按位运算与逻辑运算",
+    "titleEn": "Bitwise operators",
+    "description": "对两个三位输入分别计算按位或与逻辑或。out_not 的高三位是 b 的逐位取反，低三位是 a 的逐位取反。逻辑运算把整个向量看成真或假，结果只有一位；按位运算保留逐位关系。",
+    "source": "https://hdlbits.01xz.net/wiki/vectorgates",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module( \n    input [2:0] a,\n    input [2:0] b,\n    output [2:0] out_or_bitwise,\n    output out_or_logical,\n    output [5:0] out_not\n);",
+    "images": [
+      "/assets/6ea8bf3f456d.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "gates4",
+    "order": 15,
+    "slug": "gates4",
+    "title": "四输入逻辑门",
+    "titleEn": "Four-input gates",
+    "description": "对 in[3:0] 的所有位分别求与、或、异或，驱动 out_and、out_or、out_xor。三个输出均为一位。",
+    "source": "https://hdlbits.01xz.net/wiki/gates4",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module( \n    input [3:0] in,\n    output out_and,\n    output out_or,\n    output out_xor\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector3",
+    "order": 16,
+    "slug": "vector3",
+    "title": "向量拼接",
+    "titleEn": "Vector concatenation operator",
+    "description": "按 a、b、c、d、e、f 的顺序拼接六个五位输入，再在最低端补两个 1，构成 32 位数据；从高到低依次分配给 w、x、y、z 四个字节。拼接中的常量需明确位宽。",
+    "source": "https://hdlbits.01xz.net/wiki/vector3",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module (\n    input [4:0] a, b, c, d, e, f,\n    output [7:0] w, x, y, z );",
+    "images": [
+      "/assets/b6892ab1842c.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vectorr",
+    "order": 17,
+    "slug": "vectorr",
+    "title": "位序反转 1",
+    "titleEn": "Vector reversal 1",
+    "description": "把八位输入的位顺序反转：out[7] 对应 in[0]，out[0] 对应 in[7]。所有八位都必须被连接。",
+    "source": "https://hdlbits.01xz.net/wiki/vectorr",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module( \n    input [7:0] in,\n    output [7:0] out\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector4",
+    "order": 18,
+    "slug": "vector4",
+    "title": "重复拼接与符号扩展",
+    "titleEn": "Replication operator",
+    "description": "把八位有符号数扩展为 32 位。低八位保留输入，高 24 位复制输入符号位 in[7]，从而保持二进制补码数值不变。",
+    "source": "https://hdlbits.01xz.net/wiki/vector4",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module (\n    input [7:0] in,\n    output [31:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector5",
+    "order": 19,
+    "slug": "vector5",
+    "title": "重复拼接练习",
+    "titleEn": "More replication",
+    "description": "对 a、b、c、d、e 五个单比特输入做全部 25 种有序配对比较，相同输出 1。out[24:20] 对应 a 与 a～e，随后依次是 b、c、d、e 各自与五个输入的比较。可用重复拼接构造两个比较向量。",
+    "source": "https://hdlbits.01xz.net/wiki/vector5",
+    "path": [
+      "Verilog 语言",
+      "向量"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Vectors"
+    ],
+    "ports": "module top_module (\n    input a, b, c, d, e,\n    output [24:0] out );",
+    "images": [
+      "/assets/77972a875974.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module",
+    "order": 20,
+    "slug": "module",
+    "title": "模块实例化",
+    "titleEn": "Modules",
+    "description": "实例化给定的 mod_a 子模块，将顶层 a 接 in1、b 接 in2，子模块 out 接顶层 out。只需正确连接接口，无需重新编写 mod_a 的内部逻辑。可练习位置关联与名称关联两种语法。",
+    "source": "https://hdlbits.01xz.net/wiki/module",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module ( input a, input b, output out );",
+    "images": [
+      "/assets/b0ce402142f2.php",
+      "/assets/960b6ea096f6.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_pos",
+    "order": 21,
+    "slug": "module_pos",
+    "title": "按位置连接端口",
+    "titleEn": "Connecting ports by position",
+    "description": "给定 mod_a 的端口依次是两个输出、四个输入。按位置把它们连接到 out1、out2、a、b、c、d。位置关联严格依赖声明中的端口顺序。",
+    "source": "https://hdlbits.01xz.net/wiki/module_pos",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module ( \n    input a, \n    input b, \n    input c,\n    input d,\n    output out1,\n    output out2\n);",
+    "images": [
+      "/assets/4bd8528af596.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_name",
+    "order": 22,
+    "slug": "module_name",
+    "title": "按名称连接端口",
+    "titleEn": "Connecting ports by name",
+    "description": "实例化 mod_a，并通过名称关联连接：out1→out1、out2→out2、in1→a、in2→b、in3→c、in4→d。采用 .端口名(信号名) 形式，不依赖声明顺序。",
+    "source": "https://hdlbits.01xz.net/wiki/module_name",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module ( \n    input a, \n    input b, \n    input c,\n    input d,\n    output out1,\n    output out2\n);",
+    "images": [
+      "/assets/cea2d93f2db3.png"
+    ],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr>\n<th>Port in <code><b>mod_a</b></code></th>\n<th>Port in <code><b>top_module</b></code>\n</th></tr>\n<tr>\n<td><code>output out1</code></td>\n<td><code>out1</code>\n</td></tr>\n<tr>\n<td><code>output out2</code></td>\n<td><code>out2</code>\n</td></tr>\n<tr>\n<td><code>input in1</code></td>\n<td><code>a</code>\n</td></tr>\n<tr>\n<td><code>input in2</code></td>\n<td><code>b</code>\n</td></tr>\n<tr>\n<td><code>input in3</code></td>\n<td><code>c</code>\n</td></tr>\n<tr>\n<td><code>input in4</code></td>\n<td><code>d</code>\n</td></tr></tbody></table>"
+    ]
+  },
+  {
+    "id": "module_shift",
+    "order": 23,
+    "slug": "module_shift",
+    "title": "三个模块组成移位链",
+    "titleEn": "Three modules",
+    "description": "串联三个给定的 my_dff，构成三级一位移位寄存器。每级 q 接下一级 d，三个 clk 共用顶层时钟；顶层 d 接首级，顶层 q 接末级。",
+    "source": "https://hdlbits.01xz.net/wiki/module_shift",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module ( input clk, input d, output q );",
+    "images": [
+      "/assets/a91c41468aab.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_shift8",
+    "order": 24,
+    "slug": "module_shift8",
+    "title": "模块与向量",
+    "titleEn": "Modules and vectors",
+    "description": "串联三个 my_dff8，形成三级八位寄存器链。再编写四选一选择器：sel=0 输出 d，sel=1、2、3 分别输出一级、二级、三级延迟的数据。各模块共用 clk。",
+    "source": "https://hdlbits.01xz.net/wiki/module_shift8",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module ( \n    input clk, \n    input [7:0] d, \n    input [1:0] sel, \n    output [7:0] q \n);",
+    "images": [
+      "/assets/16c35cdacd2a.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_add",
+    "order": 25,
+    "slug": "module_add",
+    "title": "32 位加法器",
+    "titleEn": "Adder 1",
+    "description": "用两个给定的 add16 串联实现 a+b。低 16 位加法器的 cin 接 0，cout 接高 16 位加法器的 cin。顶层不输出最终进位。",
+    "source": "https://hdlbits.01xz.net/wiki/module_add",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module(\n    input [31:0] a,\n    input [31:0] b,\n    output [31:0] sum\n);",
+    "images": [
+      "/assets/60ebe598179d.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_fadd",
+    "order": 26,
+    "slug": "module_fadd",
+    "title": "层次化全加器",
+    "titleEn": "Adder 2",
+    "description": "顶层用两个 add16 组成 32 位加法器；add16 内部实例化的 add1 需要你实现。add1 接收 a、b、cin，输出单比特 sum 与 cout。提交中应包含 top_module 与 add1 两个独立模块。",
+    "source": "https://hdlbits.01xz.net/wiki/module_fadd",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module (\n    input [31:0] a,\n    input [31:0] b,\n    output [31:0] sum\n);",
+    "images": [
+      "/assets/298f8eefeb8e.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_cseladd",
+    "order": 27,
+    "slug": "module_cseladd",
+    "title": "进位选择加法器",
+    "titleEn": "Carry-select adder",
+    "description": "使用三个 add16。低半部分正常相加；高半部分分别假设进位为 0 和 1 并行计算，再用低半部分的实际进位选择正确结果。自行实现 16 位二选一选择器。",
+    "source": "https://hdlbits.01xz.net/wiki/module_cseladd",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module(\n    input [31:0] a,\n    input [31:0] b,\n    output [31:0] sum\n);",
+    "images": [
+      "/assets/b3b8df63d679.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "module_addsub",
+    "order": 28,
+    "slug": "module_addsub",
+    "title": "加减法器",
+    "titleEn": "Adder-subtractor",
+    "description": "用两个 add16 搭建 32 位加减器。sub=0 时计算 a+b；sub=1 时计算 a−b。减法通过对 b 逐位取反并把最低位进位设为 1 实现。",
+    "source": "https://hdlbits.01xz.net/wiki/module_addsub",
+    "path": [
+      "Verilog 语言",
+      "模块与层次结构"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Modules: Hierarchy"
+    ],
+    "ports": "module top_module(\n    input [31:0] a,\n    input [31:0] b,\n    input sub,\n    output [31:0] sum\n);",
+    "images": [
+      "/assets/7c4a340245da.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "alwaysblock1",
+    "order": 29,
+    "slug": "alwaysblock1",
+    "title": "组合 always 块",
+    "titleEn": "Always blocks (combinational)",
+    "description": "分别用连续赋值和组合 always 块实现与门，驱动对应输出。组合块推荐使用 always @(*)，并对所有输出完整赋值；过程赋值的目标应使用 reg 或相应变量类型。",
+    "source": "https://hdlbits.01xz.net/wiki/alwaysblock1",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module(\n    input a, \n    input b,\n    output wire out_assign,\n    output reg out_alwaysblock\n);",
+    "images": [
+      "/assets/53d016dcc412.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "alwaysblock2",
+    "order": 30,
+    "slug": "alwaysblock2",
+    "title": "时钟 always 块",
+    "titleEn": "Always blocks (clocked)",
+    "description": "分别用 assign、组合 always、上升沿触发 always 实现异或逻辑。前两种输出立即响应输入；时钟块的输出只在上升沿更新。组合块使用阻塞赋值，时钟块使用非阻塞赋值。",
+    "source": "https://hdlbits.01xz.net/wiki/alwaysblock2",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input a,\n    input b,\n    output wire out_assign,\n    output reg out_always_comb,\n    output reg out_always_ff   );",
+    "images": [
+      "/assets/2d6554d08a5f.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "always_if",
+    "order": 31,
+    "slug": "always_if",
+    "title": "if 条件语句",
+    "titleEn": "If statement",
+    "description": "实现二选一选择器：只有 sel_b1 和 sel_b2 同时为 1 时选择 b，否则选择 a。分别用连续赋值与 if/else 驱动 out_assign 和 out_always。",
+    "source": "https://hdlbits.01xz.net/wiki/always_if",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module(\n    input a,\n    input b,\n    input sel_b1,\n    input sel_b2,\n    output wire out_assign,\n    output reg out_always   );",
+    "images": [
+      "/assets/7c5559ae10f6.png"
+    ],
+    "waves": [],
+    "tables": [
+      "<table><tbody><tr><th>sel_b1</th><th>sel_b2</th><th>out_assign<br/>out_always</th></tr>\n<tr><td>0</td><td>0</td><td>a</td></tr>\n<tr><td>0</td><td>1</td><td>a</td></tr>\n<tr><td>1</td><td>0</td><td>a</td></tr>\n<tr><td>1</td><td>1</td><td>b</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "always_if2",
+    "order": 32,
+    "slug": "always_if2",
+    "title": "补全分支，避免锁存器",
+    "titleEn": "If statement latches",
+    "description": "实现两个组合控制输出：只有 cpu_overheated=1 才关闭计算机；尚未到达目的地且油箱未空时才继续行驶。为每种输入情况定义输出，不要让遗漏分支引入记忆行为。",
+    "source": "https://hdlbits.01xz.net/wiki/always_if2",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module (\n    input      cpu_overheated,\n    output reg shut_off_computer,\n    input      arrived,\n    input      gas_tank_empty,\n    output reg keep_driving  );",
+    "images": [
+      "/assets/4a50f324ef7c.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "always_case",
+    "order": 33,
+    "slug": "always_case",
+    "title": "case 多路选择",
+    "titleEn": "Case statement",
+    "description": "实现四位宽六选一选择器。sel=0～5 分别选择 data0～data5，其余选择值输出 0。case 的每个分支都应覆盖输出赋值。",
+    "source": "https://hdlbits.01xz.net/wiki/always_case",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module ( \n    input [2:0] sel, \n    input [3:0] data0,\n    input [3:0] data1,\n    input [3:0] data2,\n    input [3:0] data3,\n    input [3:0] data4,\n    input [3:0] data5,\n    output reg [3:0] out   );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "always_case2",
+    "order": 34,
+    "slug": "always_case2",
+    "title": "优先编码器",
+    "titleEn": "Priority encoder",
+    "description": "输入四位向量，输出最低有效 1 所在的位置。低位优先；例如输入 1010 时输出 1。输入全 0 时也输出 0。",
+    "source": "https://hdlbits.01xz.net/wiki/always_case2",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module (\n    input [3:0] in,\n    output reg [1:0] pos  );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "always_casez",
+    "order": 35,
+    "slug": "always_casez",
+    "title": "casez 优先编码器",
+    "titleEn": "Priority encoder with casez",
+    "description": "实现八位低位优先编码器，返回最低有效 1 的位号；全 0 时输出 0。用 casez 的无关位匹配简化分支，并确保多个条件满足时优先级正确。",
+    "source": "https://hdlbits.01xz.net/wiki/always_casez",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module (\n    input [7:0] in,\n    output reg [2:0] pos );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "always_nolatches",
+    "order": 36,
+    "slug": "always_nolatches",
+    "title": "避免锁存器",
+    "titleEn": "Avoiding latches",
+    "description": "识别四个 16 位键盘扫描码：e06b 表示左，e072 表示下，e074 表示右，e075 表示上。只拉高对应方向输出，其他情况四个输出全 0。建议先统一赋默认值，再按匹配条件修改。",
+    "source": "https://hdlbits.01xz.net/wiki/always_nolatches",
+    "path": [
+      "Verilog 语言",
+      "过程语句"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "Procedures"
+    ],
+    "ports": "module top_module (\n    input [15:0] scancode,\n    output reg left,\n    output reg down,\n    output reg right,\n    output reg up  );",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr>\n<th>扫描码 [15:0]</th>\n<th>方向键\n</th></tr>\n<tr>\n<td>16'he06b</td>\n<td>左\n</td></tr>\n<tr>\n<td>16'he072</td>\n<td>下\n</td></tr>\n<tr>\n<td>16'he074</td>\n<td>右\n</td></tr>\n<tr>\n<td>16'he075</td>\n<td>上\n</td></tr>\n<tr>\n<td>其他</td>\n<td>无\n</td></tr></tbody></table>"
+    ]
+  },
+  {
+    "id": "conditional",
+    "order": 37,
+    "slug": "conditional",
+    "title": "三目条件运算符",
+    "titleEn": "Conditional ternary operator",
+    "description": "从四个无符号输入 a、b、c、d 中找出最小值。使用条件运算符构造两两比较，再比较中间结果。相等时选择任意一个相等输入即可。",
+    "source": "https://hdlbits.01xz.net/wiki/conditional",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module (\n    input [7:0] a, b, c, d,\n    output [7:0] min);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "reduction",
+    "order": 38,
+    "slug": "reduction",
+    "title": "归约与偶校验",
+    "titleEn": "Reduction operators",
+    "description": "对八位输入求异或，生成偶校验位 parity。将该校验位与原数据一起发送时，九位数据中 1 的总数应为偶数。",
+    "source": "https://hdlbits.01xz.net/wiki/reduction",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module (\n    input [7:0] in,\n    output parity);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "gates100",
+    "order": 39,
+    "slug": "gates100",
+    "title": "100 输入归约逻辑门",
+    "titleEn": "Reduction: Even wider gates",
+    "description": "分别对 in[99:0] 的 100 位做归约与、归约或和归约异或，生成三个单比特输出。归约运算只有一个向量操作数。",
+    "source": "https://hdlbits.01xz.net/wiki/gates100",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module( \n    input [99:0] in,\n    output out_and,\n    output out_or,\n    output out_xor \n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "vector100r",
+    "order": 40,
+    "slug": "vector100r",
+    "title": "循环实现位序反转",
+    "titleEn": "Combinational for-loop: Vector reversal 2",
+    "description": "将 100 位输入反向排列，out[i] 对应 in[99−i]。使用组合循环或 generate 生成连接，确保完整覆盖所有索引。",
+    "source": "https://hdlbits.01xz.net/wiki/vector100r",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module( \n    input [99:0] in,\n    output [99:0] out\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "popcount255",
+    "order": 41,
+    "slug": "popcount255",
+    "title": "255 位人口计数",
+    "titleEn": "Combinational for-loop: 255-bit population count",
+    "description": "统计输入 255 位向量中 1 的数量，输出范围为 0～255。循环累加时先清零累加器，避免产生锁存器或依赖旧值。",
+    "source": "https://hdlbits.01xz.net/wiki/popcount255",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module( \n    input [254:0] in,\n    output [7:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "adder100i",
+    "order": 42,
+    "slug": "adder100i",
+    "title": "生成 100 位串行进位加法器",
+    "titleEn": "Generate for-loop: 100-bit binary adder 2",
+    "description": "实例化 100 个一位全加器，计算两个 100 位输入及 cin 的和。除 sum 外，还应输出每一级的进位 cout[i]；cout[99] 为最终进位。需自行提供全加器模块。",
+    "source": "https://hdlbits.01xz.net/wiki/adder100i",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module( \n    input [99:0] a, b,\n    input cin,\n    output [99:0] cout,\n    output [99:0] sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bcdadd100",
+    "order": 43,
+    "slug": "bcdadd100",
+    "title": "100 位十进制 BCD 加法器",
+    "titleEn": "Generate for-loop: 100-digit BCD adder",
+    "description": "把两个 400 位输入看作各含 100 个 BCD 数字。实例化 100 个 bcd_fadd，并逐位传递十进制进位。输出 100 位十进制和及最终进位；最低四位对应个位。",
+    "source": "https://hdlbits.01xz.net/wiki/bcdadd100",
+    "path": [
+      "Verilog 语言",
+      "更多 Verilog 特性"
+    ],
+    "pathEn": [
+      "Verilog Language",
+      "More Verilog Features"
+    ],
+    "ports": "module top_module( \n    input [399:0] a, b,\n    input cin,\n    output cout,\n    output [399:0] sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4h",
+    "order": 44,
+    "slug": "exams/m2014_q4h",
+    "title": "导线电路",
+    "titleEn": "Wire",
+    "description": "根据下图连接输入与输出，保持图示的信号方向和端口名称。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4h",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    input in,\n    output out);",
+    "images": [
+      "/assets/adfe57eaa8d8.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4i",
+    "order": 45,
+    "slug": "exams/m2014_q4i",
+    "title": "接地输出",
+    "titleEn": "GND",
+    "description": "根据下图实现固定低电平输出。逻辑地对应一位常量 0。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4i",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    output out);",
+    "images": [
+      "/assets/a7d0fac55b9e.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4e",
+    "order": 46,
+    "slug": "exams/m2014_q4e",
+    "title": "或非电路",
+    "titleEn": "NOR",
+    "description": "按图示连接输入并实现或非逻辑，输出在输入全部为低时为高。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4e",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    input in1,\n    input in2,\n    output out);",
+    "images": [
+      "/assets/49d85caac694.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4f",
+    "order": 47,
+    "slug": "exams/m2014_q4f",
+    "title": "另一种逻辑门",
+    "titleEn": "Another gate",
+    "description": "依据下图的门符号和反相标记编写组合逻辑。注意输出端的小圆圈表示取反。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4f",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    input in1,\n    input in2,\n    output out);",
+    "images": [
+      "/assets/f7d77dc7d0c7.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4g",
+    "order": 48,
+    "slug": "exams/m2014_q4g",
+    "title": "两级逻辑门",
+    "titleEn": "Two gates",
+    "description": "实现图示的两级组合电路。先确定中间节点，再推导输出表达式，必要时用括号明确优先级。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4g",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    input in1,\n    input in2,\n    input in3,\n    output out);",
+    "images": [
+      "/assets/11935d77922c.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "gates",
+    "order": 49,
+    "slug": "gates",
+    "title": "七种逻辑门",
+    "titleEn": "More logic gates",
+    "description": "由输入 a、b 同时产生与、或、异或、与非、或非、同或，以及 a 与非 b 七个结果，分别驱动同名输出。所有输出为组合逻辑。",
+    "source": "https://hdlbits.01xz.net/wiki/gates",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module( \n    input a, b,\n    output out_and,\n    output out_or,\n    output out_xor,\n    output out_nand,\n    output out_nor,\n    output out_xnor,\n    output out_anotb\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "7420",
+    "order": 50,
+    "slug": "7420",
+    "title": "7420 芯片",
+    "titleEn": "7420 chip",
+    "description": "7420 包含两个相互独立的四输入与非门。根据接口把 p1a～p1d 连接到第一组，p2a～p2d 连接到第二组，分别生成 p1y、p2y。",
+    "source": "https://hdlbits.01xz.net/wiki/7420",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module ( \n    input p1a, p1b, p1c, p1d,\n    output p1y,\n    input p2a, p2b, p2c, p2d,\n    output p2y );",
+    "images": [
+      "/assets/b34b989e05c3.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "truthtable1",
+    "order": 51,
+    "slug": "truthtable1",
+    "title": "从真值表构建电路",
+    "titleEn": "Truth tables",
+    "description": "三个输入按 x3、x2、x1 从高到低组成数值。输入为 2、3、5、7 时输出 f=1，其余输入输出 0。可先写出各有效输入对应的最小项，再进行或运算与化简。",
+    "source": "https://hdlbits.01xz.net/wiki/truthtable1",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module( \n    input x3,\n    input x2,\n    input x1,  \n    output f   \n);",
+    "images": [
+      "/assets/e8e32e7298c9.png"
+    ],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr>\n<th>Row\n</th>\n<td colspan=\"3\"><i>Inputs</i></td>\n<td><i>输出s</i>\n</td></tr>\n<tr>\n<th>number</th>\n<th>x3</th>\n<th>x2</th>\n<th>x1</th>\n<th>f\n</th></tr>\n<tr>\n<td>0</td>\n<td>0</td>\n<td>0</td>\n<td>0</td>\n<td>0\n</td></tr>\n<tr>\n<td>1</td>\n<td>0</td>\n<td>0</td>\n<td>1</td>\n<td>0\n</td></tr>\n<tr>\n<td>2</td>\n<td>0</td>\n<td>1</td>\n<td>0</td>\n<td>1\n</td></tr>\n<tr>\n<td>3</td>\n<td>0</td>\n<td>1</td>\n<td>1</td>\n<td>1\n</td></tr>\n<tr>\n<td>4</td>\n<td>1</td>\n<td>0</td>\n<td>0</td>\n<td>0\n</td></tr>\n<tr>\n<td>5</td>\n<td>1</td>\n<td>0</td>\n<td>1</td>\n<td>1\n</td></tr>\n<tr>\n<td>6</td>\n<td>1</td>\n<td>1</td>\n<td>0</td>\n<td>0\n</td></tr>\n<tr>\n<td>7</td>\n<td>1</td>\n<td>1</td>\n<td>1</td>\n<td>1\n</td></tr></tbody></table>"
+    ]
+  },
+  {
+    "id": "mt2015_eq2",
+    "order": 52,
+    "slug": "mt2015_eq2",
+    "title": "两位相等比较",
+    "titleEn": "Two-bit equality",
+    "description": "比较两个两位输入 A 与 B。完全相等时 z=1，否则 z=0。比较应覆盖两位，而不是仅比较某一位。",
+    "source": "https://hdlbits.01xz.net/wiki/mt2015_eq2",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module ( input [1:0] A, input [1:0] B, output z );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mt2015_q4a",
+    "order": 53,
+    "slug": "mt2015_q4a",
+    "title": "简单电路 A",
+    "titleEn": "Simple circuit A",
+    "description": "实现组合函数 z=(x XOR y) AND x。按表达式确定异或和与运算的连接关系。",
+    "source": "https://hdlbits.01xz.net/wiki/mt2015_q4a",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (input x, input y, output z);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mt2015_q4b",
+    "order": 54,
+    "slug": "mt2015_q4b",
+    "title": "简单电路 B",
+    "titleEn": "Simple circuit B",
+    "description": "观察下方波形中 x、y 的组合与 z 的对应关系，列出真值表后实现组合逻辑。不要把组合波形中的时间间隔当成时钟周期。",
+    "source": "https://hdlbits.01xz.net/wiki/mt2015_q4b",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module ( input x, input y, output z );",
+    "images": [
+      "/assets/1574b9d23d7f.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mt2015_q4",
+    "order": 55,
+    "slug": "mt2015_q4",
+    "title": "组合电路 A 与 B",
+    "titleEn": "Combine circuits A and B",
+    "description": "依据图示各实例的连接关系，将两份电路 A 和两份电路 B 组合为顶层电路。A、B 的定义见相邻两道练习。",
+    "source": "https://hdlbits.01xz.net/wiki/mt2015_q4",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (input x, input y, output z);",
+    "images": [
+      "/assets/e7cb6f2ec6a1.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "ringer",
+    "order": 56,
+    "slug": "ringer",
+    "title": "响铃还是振动？",
+    "titleEn": "Ring or vibrate?",
+    "description": "没有来电 ring 时两个输出均为 0。来电时，vibrate_mode=1 开启 motor，否则开启 ringer。两个输出不能同时为 1。",
+    "source": "https://hdlbits.01xz.net/wiki/ringer",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    input ring,\n    input vibrate_mode,\n    output ringer,       \n    output motor         \n);",
+    "images": [
+      "/assets/b3881b5e39a3.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "thermostat",
+    "order": 57,
+    "slug": "thermostat",
+    "title": "温控器",
+    "titleEn": "Thermostat",
+    "description": "mode=1 为制热模式：too_cold 时启动 heater；mode=0 为制冷模式：too_hot 时启动 aircon。风扇 fan 在制热、制冷或 fan_on 请求有效时开启。",
+    "source": "https://hdlbits.01xz.net/wiki/thermostat",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module (\n    input too_cold,\n    input too_hot,\n    input mode,\n    input fan_on,\n    output heater,\n    output aircon,\n    output fan\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "popcount3",
+    "order": 58,
+    "slug": "popcount3",
+    "title": "三位人口计数",
+    "titleEn": "3-bit population count",
+    "description": "统计 in[2:0] 中为 1 的位数，用两位输出 out 表示 0～3。注意加法表达式和目标信号的位宽。",
+    "source": "https://hdlbits.01xz.net/wiki/popcount3",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module( \n    input [2:0] in,\n    output [1:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "gatesv",
+    "order": 59,
+    "slug": "gatesv",
+    "title": "相邻位逻辑",
+    "titleEn": "Gates and vectors",
+    "description": "对于四位输入，out_both 判断当前位与高一位是否同时为 1；out_any 判断当前位与低一位是否至少有一个为 1；out_different 判断当前位与高一位是否不同，最后一项按首尾相连处理。",
+    "source": "https://hdlbits.01xz.net/wiki/gatesv",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module( \n    input [3:0] in,\n    output [2:0] out_both,\n    output [3:1] out_any,\n    output [3:0] out_different );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "gatesv100",
+    "order": 60,
+    "slug": "gatesv100",
+    "title": "100 位相邻逻辑",
+    "titleEn": "Even longer vectors",
+    "description": "将相邻位逻辑扩展到 100 位。out_both 比较当前位与高一位，out_any 比较当前位与低一位；两者只输出有相邻位的位置。out_different 共 100 位，高端与最低位环绕比较。",
+    "source": "https://hdlbits.01xz.net/wiki/gatesv100",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "基本逻辑门"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Basic Gates"
+    ],
+    "ports": "module top_module( \n    input [99:0] in,\n    output [98:0] out_both,\n    output [99:1] out_any,\n    output [99:0] out_different );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mux2to1",
+    "order": 61,
+    "slug": "mux2to1",
+    "title": "二选一多路选择器",
+    "titleEn": "2-to-1 multiplexer",
+    "description": "根据单比特 sel 选择 a 或 b：sel=0 选 a，sel=1 选 b。数据宽度为一位。",
+    "source": "https://hdlbits.01xz.net/wiki/mux2to1",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "多路选择器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Multiplexers"
+    ],
+    "ports": "module top_module( \n    input a, b, sel,\n    output out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mux2to1v",
+    "order": 62,
+    "slug": "mux2to1v",
+    "title": "100 位二选一选择器",
+    "titleEn": "2-to-1 bus multiplexer",
+    "description": "根据 sel 从两个 100 位输入中选择一个送往 out。sel=0 输出 a；sel=1 输出 b。选择的是完整总线。",
+    "source": "https://hdlbits.01xz.net/wiki/mux2to1v",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "多路选择器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Multiplexers"
+    ],
+    "ports": "module top_module( \n    input [99:0] a, b,\n    input sel,\n    output [99:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mux9to1v",
+    "order": 63,
+    "slug": "mux9to1v",
+    "title": "九选一多路选择器",
+    "titleEn": "9-to-1 multiplexer",
+    "description": "实现 16 位宽九选一选择器。sel=0～8 依次选择 a～i；sel=9～15 时输出 16 个 1。",
+    "source": "https://hdlbits.01xz.net/wiki/mux9to1v",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "多路选择器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Multiplexers"
+    ],
+    "ports": "module top_module( \n    input [15:0] a, b, c, d, e, f, g, h, i,\n    input [3:0] sel,\n    output [15:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mux256to1",
+    "order": 64,
+    "slug": "mux256to1",
+    "title": "256 选一选择器",
+    "titleEn": "256-to-1 multiplexer",
+    "description": "256 个一位数据打包在 in[255:0] 中，sel 给出待选择位的索引，输出该位的值。",
+    "source": "https://hdlbits.01xz.net/wiki/mux256to1",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "多路选择器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Multiplexers"
+    ],
+    "ports": "module top_module( \n    input [255:0] in,\n    input [7:0] sel,\n    output out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mux256to1v",
+    "order": 65,
+    "slug": "mux256to1v",
+    "title": "四位宽 256 选一选择器",
+    "titleEn": "256-to-1 4-bit multiplexer",
+    "description": "1024 位输入包含 256 组四位数据。sel=0 选择 in[3:0]，sel=1 选择 in[7:4]，依此类推。可使用可变起点的固定宽度位段选择。",
+    "source": "https://hdlbits.01xz.net/wiki/mux256to1v",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "多路选择器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Multiplexers"
+    ],
+    "ports": "module top_module( \n    input [1023:0] in,\n    input [7:0] sel,\n    output [3:0] out );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "hadd",
+    "order": 66,
+    "slug": "hadd",
+    "title": "半加器",
+    "titleEn": "Half adder",
+    "description": "把一位输入 a、b 相加，得到一位 sum 和进位 cout。半加器没有输入进位。",
+    "source": "https://hdlbits.01xz.net/wiki/hadd",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module( \n    input a, b,\n    output cout, sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fadd",
+    "order": 67,
+    "slug": "fadd",
+    "title": "全加器",
+    "titleEn": "Full adder",
+    "description": "把 a、b、cin 三个一位输入相加，输出最低位 sum 与高位 cout。全部八种输入组合都需正确。",
+    "source": "https://hdlbits.01xz.net/wiki/fadd",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module( \n    input a, b, cin,\n    output cout, sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "adder3",
+    "order": 68,
+    "slug": "adder3",
+    "title": "三位串行进位加法器",
+    "titleEn": "3-bit binary adder",
+    "description": "使用三个自行编写的一位全加器实现 a+b+cin。输出三位 sum，并把每一级进位送入 cout[2:0]；最高位 cout[2] 是整体进位。",
+    "source": "https://hdlbits.01xz.net/wiki/adder3",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module( \n    input [2:0] a, b,\n    input cin,\n    output [2:0] cout,\n    output [2:0] sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4j",
+    "order": 69,
+    "slug": "exams/m2014_q4j",
+    "title": "串联全加器",
+    "titleEn": "Adder",
+    "description": "根据图中 FA（全加器）连接实现多位加法。每一级的进位必须传到下一位，端口和位宽按下方声明。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4j",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module (\n    input [3:0] x,\n    input [3:0] y, \n    output [4:0] sum);",
+    "images": [
+      "/assets/bfa3b1cfe6d0.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q1c",
+    "order": 70,
+    "slug": "exams/ece241_2014_q1c",
+    "title": "有符号加法溢出",
+    "titleEn": "Signed addition overflow",
+    "description": "将两个八位补码数 a、b 相加得到 s，同时给出 overflow。同号输入相加得到异号结果时发生有符号溢出；最高位进位本身不等于该溢出标志。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q1c",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module (\n    input [7:0] a,\n    input [7:0] b,\n    output [7:0] s,\n    output overflow\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "adder100",
+    "order": 71,
+    "slug": "adder100",
+    "title": "100 位二进制加法器",
+    "titleEn": "100-bit binary adder",
+    "description": "计算两个 100 位输入与 cin 的和。用 100 位 sum 保存低位结果，cout 保存第 101 位，避免因表达式截断丢失进位。",
+    "source": "https://hdlbits.01xz.net/wiki/adder100",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module( \n    input [99:0] a, b,\n    input cin,\n    output cout,\n    output [99:0] sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bcdadd4",
+    "order": 72,
+    "slug": "bcdadd4",
+    "title": "四位十进制 BCD 加法器",
+    "titleEn": "4-digit BCD adder",
+    "description": "使用四个 bcd_fadd 组成四位十进制加法器。a、b 各为 16 位，每四位表示一个十进制数字。串联各位进位，输出 sum 与最终 cout。",
+    "source": "https://hdlbits.01xz.net/wiki/bcdadd4",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "算术电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Arithmetic Circuits"
+    ],
+    "ports": "module top_module ( \n    input [15:0] a, b,\n    input cin,\n    output cout,\n    output [15:0] sum );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "kmap1",
+    "order": 73,
+    "slug": "kmap1",
+    "title": "三变量卡诺图",
+    "titleEn": "3-variable",
+    "description": "按照下方三变量卡诺图实现输出。可圈选相邻的 1 推导与或式，或圈选 0 推导或与式；注意卡诺图的格序采用格雷码。",
+    "source": "https://hdlbits.01xz.net/wiki/kmap1",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module(\n    input a,\n    input b,\n    input c,\n    output out  );",
+    "images": [
+      "/assets/1dae0d3e4f5d.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "kmap2",
+    "order": 74,
+    "slug": "kmap2",
+    "title": "四变量卡诺图 1",
+    "titleEn": "4-variable",
+    "description": "实现下方四变量卡诺图对应的布尔函数。先确认行列变量的位序，再处理边界相邻关系。",
+    "source": "https://hdlbits.01xz.net/wiki/kmap2",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module(\n    input a,\n    input b,\n    input c,\n    input d,\n    output out  );",
+    "images": [
+      "/assets/8629ae0381d8.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "kmap3",
+    "order": 75,
+    "slug": "kmap3",
+    "title": "四变量卡诺图 2",
+    "titleEn": "4-variable",
+    "description": "根据下方卡诺图推导并实现组合电路。标为无关项的格子可以按有利于化简的方式取值。",
+    "source": "https://hdlbits.01xz.net/wiki/kmap3",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module(\n    input a,\n    input b,\n    input c,\n    input d,\n    output out  );",
+    "images": [
+      "/assets/baa8033b2975.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "kmap4",
+    "order": 76,
+    "slug": "kmap4",
+    "title": "四变量卡诺图 3",
+    "titleEn": "4-variable",
+    "description": "将下方卡诺图转换为组合逻辑。可分别尝试与或式与或与式，并验证所有确定的输入组合。",
+    "source": "https://hdlbits.01xz.net/wiki/kmap4",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module(\n    input a,\n    input b,\n    input c,\n    input d,\n    output out  );",
+    "images": [
+      "/assets/b7337af2a2dc.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2013_q2",
+    "order": 77,
+    "slug": "exams/ece241_2013_q2",
+    "title": "最简与或式与或与式",
+    "titleEn": "Minimum SOP and POS",
+    "description": "把 a、b、c、d 从高到低解释为四位数。2、7、15 时输出 1；0、1、4、5、6、9、10、13、14 时输出 0；3、8、11、12 为无关项。分别用最简 SOP 和 POS 形式实现 out_sop、out_pos。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2013_q2",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module (\n    input a,\n    input b,\n    input c,\n    input d,\n    output out_sop,\n    output out_pos\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q3",
+    "order": 78,
+    "slug": "exams/m2014_q3",
+    "title": "卡诺图与无关项",
+    "titleEn": "Karnaugh map",
+    "description": "实现图中的函数 f。图上 d 表示无关项，可选择 0 或 1 以简化电路；不是额外输入信号。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q3",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module (\n    input [4:1] x, \n    output f );",
+    "images": [
+      "/assets/3d9542fcd753.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2012_q1g",
+    "order": 79,
+    "slug": "exams/2012_q1g",
+    "title": "卡诺图化简",
+    "titleEn": "Karnaugh map",
+    "description": "由下方卡诺图求出 f 的逻辑表达式并实现。可用 SOP 或 POS 形式，并检查四角和左右、上下边界的相邻关系。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2012_q1g",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module (\n    input [4:1] x,\n    output f\n);",
+    "images": [
+      "/assets/fe1d4c96eaa3.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q3",
+    "order": 80,
+    "slug": "exams/ece241_2014_q3",
+    "title": "用多路选择器实现卡诺图",
+    "titleEn": "K-map implemented with a multiplexer",
+    "description": "a、b 是给定四选一选择器的选择端。只实现图中 top_module 所示的四路数据生成部分，使整个电路符合卡诺图；按原题约束，应尽量少用二选一选择器且不使用其他门。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q3",
+    "path": [
+      "电路设计",
+      "组合逻辑",
+      "卡诺图与电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Combinational Logic",
+      "Karnaugh Map to Circuit"
+    ],
+    "ports": "module top_module (\n    input c,\n    input d,\n    output [3:0] mux_in\n);",
+    "images": [
+      "/assets/638aa0a7b683.png",
+      "/assets/5d040926bdcc.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "dff",
+    "order": 81,
+    "slug": "dff",
+    "title": "D 触发器",
+    "titleEn": "D flip-flop",
+    "description": "实现一个上升沿触发的 D 触发器。只有 clk 上升沿到来时才把 d 写入 q，两个有效边沿之间保持输出。",
+    "source": "https://hdlbits.01xz.net/wiki/dff",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,    \n    input d,\n    output reg q );",
+    "images": [
+      "/assets/dd78050e7f19.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "dff8",
+    "order": 82,
+    "slug": "dff8",
+    "title": "八位 D 触发器",
+    "titleEn": "D flip-flops",
+    "description": "实现八位并行 D 触发器。所有位共用 clk，并在其上升沿采样 d[7:0]。",
+    "source": "https://hdlbits.01xz.net/wiki/dff8",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input [7:0] d,\n    output [7:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "dff8r",
+    "order": 83,
+    "slug": "dff8r",
+    "title": "同步复位 D 触发器",
+    "titleEn": "DFF with reset",
+    "description": "八位寄存器在 clk 上升沿更新。reset 高有效且同步：若采样边沿 reset=1，q 清零；否则采样 d。",
+    "source": "https://hdlbits.01xz.net/wiki/dff8r",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,            \n    input [7:0] d,\n    output [7:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "dff8p",
+    "order": 84,
+    "slug": "dff8p",
+    "title": "指定复位值的触发器",
+    "titleEn": "DFF with reset value",
+    "description": "实现下降沿触发的八位寄存器。reset 高有效同步复位，复位值为十六进制 34，不是 0。",
+    "source": "https://hdlbits.01xz.net/wiki/dff8p",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    input [7:0] d,\n    output [7:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "dff8ar",
+    "order": 85,
+    "slug": "dff8ar",
+    "title": "异步复位 D 触发器",
+    "titleEn": "DFF with asynchronous reset",
+    "description": "实现八位上升沿 D 触发器。areset 为高有效异步复位，激活后无需等待时钟边沿即令 q 清零。",
+    "source": "https://hdlbits.01xz.net/wiki/dff8ar",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input areset,   \n    input [7:0] d,\n    output [7:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "dff16e",
+    "order": 86,
+    "slug": "dff16e",
+    "title": "带字节使能的触发器",
+    "titleEn": "DFF with byte enable",
+    "description": "实现 16 位上升沿寄存器。resetn 为低有效同步复位；byteena[1] 允许写入高字节，byteena[0] 允许写入低字节，未使能的字节保持原值。复位优先。",
+    "source": "https://hdlbits.01xz.net/wiki/dff16e",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input resetn,\n    input [1:0] byteena,\n    input [15:0] d,\n    output [15:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4a",
+    "order": 87,
+    "slug": "exams/m2014_q4a",
+    "title": "D 锁存器",
+    "titleEn": "D Latch",
+    "description": "实现图示 D 锁存器。使能有效时输出跟随输入，未使能时保持状态。这是电平敏感器件，不是边沿触发器。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4a",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input d, \n    input ena,\n    output q);",
+    "images": [
+      "/assets/d29f472e3b38.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4b",
+    "order": 88,
+    "slug": "exams/m2014_q4b",
+    "title": "D 触发器电路 1",
+    "titleEn": "DFF",
+    "description": "按图示的时钟边沿、复位极性及输入输出连接实现触发器。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4b",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input d, \n    input ar,   \n    output q);",
+    "images": [
+      "/assets/047eee7d7c88.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4c",
+    "order": 89,
+    "slug": "exams/m2014_q4c",
+    "title": "D 触发器电路 2",
+    "titleEn": "DFF",
+    "description": "实现下图的触发器电路。仔细区分同步与异步控制信号，以及复位端的小圆圈极性。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4c",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input d, \n    input r,   \n    output q);",
+    "images": [
+      "/assets/759c87209a82.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4d",
+    "order": 90,
+    "slug": "exams/m2014_q4d",
+    "title": "触发器与逻辑门",
+    "titleEn": "DFF+gate",
+    "description": "将图示组合门的结果送入 D 触发器，在指定时钟边沿更新。反馈路径使用当前寄存器状态，而非新计算值。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4d",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input in, \n    output out);",
+    "images": [
+      "/assets/ad2529bf4e59.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mt2015_muxdff",
+    "order": 91,
+    "slug": "mt2015_muxdff",
+    "title": "选择器与触发器",
+    "titleEn": "Mux and DFF",
+    "description": "只实现图示可重复子单元 top_module，它包含一个多路选择器与一个 D 触发器。完整电路可由三个这样的单元串接。",
+    "source": "https://hdlbits.01xz.net/wiki/mt2015_muxdff",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n\tinput clk,\n\tinput L,\n\tinput r_in,\n\tinput q_in,\n\toutput reg Q);",
+    "images": [
+      "/assets/eca55e8acfbf.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2014_q4a",
+    "order": 92,
+    "slug": "exams/2014_q4a",
+    "title": "移位寄存器的一级",
+    "titleEn": "Mux and DFF",
+    "description": "实现图示 n 位移位寄存器中的单级单元，包括一个触发器及其输入选择器。按 L、E 等控制信号选择并行装载、移位或保持。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2014_q4a",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input w, R, E, L,\n    output Q\n);",
+    "images": [
+      "/assets/e674472e9a7d.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q4",
+    "order": 93,
+    "slug": "exams/ece241_2014_q4",
+    "title": "触发器与门的组合",
+    "titleEn": "DFFs and gates",
+    "description": "按照下图实现状态寄存器和反馈组合逻辑。题设假定工作开始前各触发器已清零；顶层接口按下方声明。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q4",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input x,\n    output z\n);",
+    "images": [
+      "/assets/3a15810e4e86.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2013_q7",
+    "order": 94,
+    "slug": "exams/ece241_2013_q7",
+    "title": "由真值表实现 JK 触发器",
+    "titleEn": "Create circuit from truth table",
+    "description": "仅用 D 触发器及逻辑门实现 JK 行为。J,K=00 保持；01 清零；10 置一；11 翻转。状态在 clk 上升沿更新。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2013_q7",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input j,\n    input k,\n    output Q);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th>J</th><th>K</th><th>Q</th></tr>\n<tr><td>0</td><td>0</td><td>Qold</td></tr>\n<tr><td>0</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>1</td><td>~Qold</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "edgedetect",
+    "order": 95,
+    "slug": "edgedetect",
+    "title": "上升沿检测",
+    "titleEn": "Detect an edge",
+    "description": "对八位输入逐位比较本拍采样值与上一拍值。某位出现 0→1 转换时，对应 pedge 在采样后的周期输出一个脉冲。",
+    "source": "https://hdlbits.01xz.net/wiki/edgedetect",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input [7:0] in,\n    output [7:0] pedge\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............"
+          },
+          {
+            "name": "in[7:0]",
+            "wave": "=.=...=.==...",
+            "data": [
+              "0",
+              "2",
+              "e",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "name": "pedge[7:0]",
+            "wave": "=..==..==.==.",
+            "data": [
+              "0",
+              "2",
+              "0",
+              "c",
+              "0",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "name": "in[1]",
+            "wave": "0.1.....01..."
+          },
+          {
+            "name": "pedge[1]",
+            "wave": "0..10.....10."
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "edgedetect2",
+    "order": 96,
+    "slug": "edgedetect2",
+    "title": "双边沿检测",
+    "titleEn": "Detect both edges",
+    "description": "逐位比较八位输入前后两个时钟采样值。出现 0→1 或 1→0 时，对应 anyedge 在采样后输出一个周期的脉冲。",
+    "source": "https://hdlbits.01xz.net/wiki/edgedetect2",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input [7:0] in,\n    output [7:0] anyedge\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............"
+          },
+          {
+            "name": "in[7:0]",
+            "wave": "=.=...=.==...",
+            "data": [
+              "0",
+              "2",
+              "e",
+              "0",
+              "2"
+            ]
+          },
+          {
+            "name": "anyedge[7:0]",
+            "wave": "=..==..=====.",
+            "data": [
+              "0",
+              "2",
+              "0",
+              "c",
+              "0",
+              "e",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "name": "in[1]",
+            "wave": "0.1.....01..."
+          },
+          {
+            "name": "anyedge[1]",
+            "wave": "0..10....1.0."
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "edgecapture",
+    "order": 97,
+    "slug": "edgecapture",
+    "title": "下降沿捕获寄存器",
+    "titleEn": "Edge capture register",
+    "description": "检测 32 位输入各位的 1→0 转换，捕获后对应 out 位保持 1，直到同步复位清零。复位与捕获同时发生时复位优先。",
+    "source": "https://hdlbits.01xz.net/wiki/edgecapture",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    input [31:0] in,\n    output [31:0] out\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.............."
+          },
+          {
+            "name": "in[31:0]",
+            "wave": "=.=...=.==..=..",
+            "data": [
+              "0",
+              "2",
+              "e",
+              "0",
+              "2",
+              "0"
+            ]
+          },
+          {
+            "name": "reset",
+            "wave": "10.........10.."
+          },
+          {
+            "name": "out[31:0]",
+            "wave": "=........=..==.",
+            "data": [
+              "0",
+              "e",
+              "0",
+              "2"
+            ]
+          },
+          {},
+          {
+            "name": "in[1]",
+            "wave": "0.1.....01..0..",
+            "node": "...........c..."
+          },
+          {
+            "name": "out[1]",
+            "wave": "0........1..01.",
+            "node": "............bd.."
+          },
+          {
+            "name": "reset",
+            "wave": "10.........10..",
+            "node": "...........a..."
+          }
+        ],
+        "edge": [
+          "a~->b reset",
+          "c-~>d set"
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "dualedge",
+    "order": 98,
+    "slug": "dualedge",
+    "title": "双边沿触发电路",
+    "titleEn": "Dual-edge triggered flip-flop",
+    "description": "组合上升沿和下降沿触发器，构造在 clk 的两个边沿都采样 d 的电路。不要直接把 posedge 与 negedge 写在同一触发器敏感列表中；本练习忽略组合输出的潜在毛刺。",
+    "source": "https://hdlbits.01xz.net/wiki/dualedge",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "锁存器与触发器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Latches and Flip-Flops"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input d,\n    output q\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p......",
+            "period": 1
+          },
+          {
+            "name": "d",
+            "wave": "010.1.010.1..0",
+            "period": 0.5
+          },
+          {
+            "name": "q",
+            "wave": "x010.1.010.1..",
+            "period": 0.5
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "count15",
+    "order": 99,
+    "slug": "count15",
+    "title": "四位二进制计数器",
+    "titleEn": "Four-bit binary counter",
+    "description": "实现 0～15 循环计数器，周期为 16。clk 上升沿更新，reset 为高有效同步复位，将计数值置 0。",
+    "source": "https://hdlbits.01xz.net/wiki/count15",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,      \n    output [3:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..............."
+          },
+          {
+            "name": "reset",
+            "wave": "0............10."
+          },
+          {
+            "name": "q",
+            "wave": "================",
+            "data": [
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "a",
+              "b",
+              "c",
+              "d",
+              "e",
+              "f",
+              "0",
+              "1",
+              "2",
+              "0",
+              "1"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "count10",
+    "order": 100,
+    "slug": "count10",
+    "title": "十进制计数器",
+    "titleEn": "Decade counter",
+    "description": "实现 0～9 循环计数器。计到 9 的下一个有效边沿回到 0。同步复位将计数值置 0。",
+    "source": "https://hdlbits.01xz.net/wiki/count10",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,        \n    output [3:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..............."
+          },
+          {
+            "name": "reset",
+            "wave": "10...........10."
+          },
+          {
+            "name": "q",
+            "wave": "x===============",
+            "data": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "0",
+              "1",
+              "2",
+              "0",
+              "1"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "count1to10",
+    "order": 101,
+    "slug": "count1to10",
+    "title": "从 1 到 10 的计数器",
+    "titleEn": "Decade counter again",
+    "description": "计数序列为 1、2、…、10、1。同步复位值为 1，不能沿用从 0 开始的十进制计数器复位逻辑。",
+    "source": "https://hdlbits.01xz.net/wiki/count1to10",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    output [3:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p......."
+          },
+          {
+            "name": "reset",
+            "wave": "10...10."
+          },
+          {
+            "name": "q",
+            "wave": "x=======",
+            "data": [
+              "1",
+              "2",
+              "3",
+              "4",
+              "5",
+              "1",
+              "2"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "countslow",
+    "order": 102,
+    "slug": "countslow",
+    "title": "带使能的十进制计数器",
+    "titleEn": "Slow decade counter",
+    "description": "在 slowena=1 的上升沿推进 0～9 循环计数；未使能时保持。同步复位优先于使能，复位值为 0。",
+    "source": "https://hdlbits.01xz.net/wiki/countslow",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input slowena,\n    input reset,\n    output [3:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p................"
+          },
+          {
+            "name": "reset",
+            "wave": "10...........10.."
+          },
+          {
+            "name": "slowena",
+            "wave": "10.10.10.10.10.10"
+          },
+          {
+            "name": "q",
+            "wave": "x=..=..=..=..==.=",
+            "data": [
+              "0",
+              "1",
+              "2",
+              "3",
+              "4",
+              "0",
+              "1"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q7a",
+    "order": 103,
+    "slug": "exams/ece241_2014_q7a",
+    "title": "1～12 计数器",
+    "titleEn": "Counter 1-12",
+    "description": "实例化给定 count4，构造 1～12 的循环计数。Reset 高有效同步复位到 1，Enable 控制运行；输出 c_enable、c_load、c_d 以反映内部计数器控制。并行装载优先于使能。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q7a",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    input enable,\n    output [3:0] Q,\n    output c_enable,\n    output c_load,\n    output [3:0] c_d\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q7b",
+    "order": 104,
+    "slug": "exams/ece241_2014_q7b",
+    "title": "1000 分频脉冲",
+    "titleEn": "Counter 1000",
+    "description": "用三个给定 bcdcount 对 1000 Hz 时钟计数，每 1000 拍产生一个持续一拍的 OneHertz 脉冲。所有计数器直接共用原时钟，用使能串联，并输出三个 c_enable。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q7b",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    output OneHertz,\n    output [2:0] c_enable\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "countbcd",
+    "order": 105,
+    "slug": "countbcd",
+    "title": "四位十进制计数器",
+    "titleEn": "4-digit decimal counter",
+    "description": "构造四位 BCD 计数器，q 的最低四位为个位，随后是十位、百位、千位。输出高三位数字的进位使能 ena，确保每个数字在 0～9 内循环。",
+    "source": "https://hdlbits.01xz.net/wiki/countbcd",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,   \n    output [3:1] ena,\n    output [15:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p......."
+          },
+          {
+            "name": "reset",
+            "wave": "0...10.."
+          },
+          {
+            "name": "q[3:0]",
+            "wave": "========",
+            "data": [
+              "7",
+              "8",
+              "9",
+              "0",
+              "1",
+              "0",
+              "1",
+              "2"
+            ]
+          },
+          {
+            "name": "ena[1]",
+            "wave": "0.10...."
+          },
+          {
+            "name": "q[7:4]",
+            "wave": "=..=.=..",
+            "data": [
+              "5",
+              "6",
+              "0"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "count_clock",
+    "order": 106,
+    "slug": "count_clock",
+    "title": "十二小时制时钟",
+    "titleEn": "12-hour clock",
+    "description": "ena 有效时推进一秒；hh、mm、ss 均为两位 BCD。小时范围 01～12，分秒范围 00～59。同步 reset 优先于 ena，将时间复位为 12:00:00 AM。11:59:59 到 12:00:00 时切换 pm。",
+    "source": "https://hdlbits.01xz.net/wiki/count_clock",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "计数器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Counters"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input reset,\n    input ena,\n    output pm,\n    output [7:0] hh,\n    output [7:0] mm,\n    output [7:0] ss);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p........"
+          },
+          {
+            "name": "reset",
+            "wave": "0...10..."
+          },
+          {
+            "name": "ena",
+            "wave": "1...x1.0."
+          },
+          {
+            "name": "pm",
+            "wave": "0..1.0...",
+            "data": [
+              "57",
+              "58",
+              "59",
+              "00",
+              "01",
+              "00",
+              "01",
+              "02"
+            ]
+          },
+          {
+            "name": "hh[7:0]",
+            "wave": "=..=.....",
+            "data": [
+              "8'h11",
+              "8'h12"
+            ]
+          },
+          {
+            "name": "mm[7:0]",
+            "wave": "=..=.....",
+            "data": [
+              "8'h59",
+              "8'h00"
+            ]
+          },
+          {
+            "name": "ss[7:0]",
+            "wave": "========.",
+            "data": [
+              "8'h57",
+              "8'h58",
+              "8'h59",
+              "8'h00",
+              "8'h01",
+              "8'h00",
+              "8'h01",
+              "8'h02"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "shift4",
+    "order": 107,
+    "slug": "shift4",
+    "title": "四位移位寄存器",
+    "titleEn": "4-bit shift register",
+    "description": "areset 高有效异步清零。时钟上升沿优先响应 load，将 data 装入；否则 ena=1 时右移一位，最高位补 0；否则保持。",
+    "source": "https://hdlbits.01xz.net/wiki/shift4",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,  \n    input load,\n    input ena,\n    input [3:0] data,\n    output reg [3:0] q);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "rotate100",
+    "order": 108,
+    "slug": "rotate100",
+    "title": "左右循环移位",
+    "titleEn": "Left/right rotator",
+    "description": "实现 100 位循环移位寄存器。load 同步装载优先；ena=01 右转一位，ena=10 左转一位，ena=00 或 11 保持。被移出的位从另一端回到寄存器。",
+    "source": "https://hdlbits.01xz.net/wiki/rotate100",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input load,\n    input [1:0] ena,\n    input [99:0] data,\n    output reg [99:0] q);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "shift18",
+    "order": 109,
+    "slug": "shift18",
+    "title": "移动 1 位或 8 位",
+    "titleEn": "Left/right arithmetic shift by 1 or 8",
+    "description": "实现 64 位算术移位寄存器。load 优先装载；ena 有效时，amount=00/01 分别左移 1/8 位，10/11 分别算术右移 1/8 位。右移空出的高位补符号位。",
+    "source": "https://hdlbits.01xz.net/wiki/shift18",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input load,\n    input ena,\n    input [1:0] amount,\n    input [63:0] data,\n    output reg [63:0] q);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "lfsr5",
+    "order": 110,
+    "slug": "lfsr5",
+    "title": "五位线性反馈移位寄存器",
+    "titleEn": "5-bit LFSR",
+    "description": "实现图示五位 Galois LFSR，抽头为第 5、3 位（抽头从 1 编号）。复位值为 1。注意反馈位与各抽头异或的具体连接。",
+    "source": "https://hdlbits.01xz.net/wiki/lfsr5",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input reset,    \n    output [4:0] q\n);",
+    "images": [
+      "/assets/1928d7f26437.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "mt2015_lfsr",
+    "order": 111,
+    "slug": "mt2015_lfsr",
+    "title": "三位反馈移位电路",
+    "titleEn": "3-bit LFSR",
+    "description": "按照下图实现三位时序电路。R 接 SW，Clock 接 KEY[0]，L 接 KEY[1]，Q 输出接 LEDR。可拆分子模块，但顶层名称必须为 top_module。",
+    "source": "https://hdlbits.01xz.net/wiki/mt2015_lfsr",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module (\n\tinput [2:0] SW,      \n\tinput [1:0] KEY,     \n\toutput [2:0] LEDR);",
+    "images": [
+      "/assets/eca55e8acfbf.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "lfsr32",
+    "order": 112,
+    "slug": "lfsr32",
+    "title": "32 位线性反馈移位寄存器",
+    "titleEn": "32-bit LFSR",
+    "description": "实现 32 位 Galois LFSR，抽头位置为 32、22、2、1。沿用五位 LFSR 的编号和反馈方式，同步复位到 1。",
+    "source": "https://hdlbits.01xz.net/wiki/lfsr32",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input reset,    \n    output [31:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q4k",
+    "order": 113,
+    "slug": "exams/m2014_q4k",
+    "title": "移位寄存器电路",
+    "titleEn": "Shift register",
+    "description": "实现下图的寄存器链及组合反馈连接，按顶层接口保留时钟和端口名。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q4k",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input resetn,   \n    input in,\n    output out);",
+    "images": [
+      "/assets/6e80eb77a37d.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2014_q4b",
+    "order": 114,
+    "slug": "exams/2014_q4b",
+    "title": "四级可装载移位寄存器",
+    "titleEn": "Shift register",
+    "description": "用四个 MUXDFF 单元构建图示移位寄存器。并行输入 R 接 SW；clk、E、L、w 分别接 KEY[0]～KEY[3]；Q 接 LEDR[3:0]。子单元参考相应的单级练习。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2014_q4b",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module (\n    input [3:0] SW,\n    input [3:0] KEY,\n    output [3:0] LEDR\n);",
+    "images": [
+      "/assets/e674472e9a7d.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2013_q12",
+    "order": 115,
+    "slug": "exams/ece241_2013_q12",
+    "title": "三输入查找表 LUT",
+    "titleEn": "3-input LUT",
+    "description": "先建立八位移位寄存器，enable 有效时从 S 向 Q[0] 移入，旧数据移向高位。A、B、C 组成地址，Z 选出对应 Q[0]～Q[7]。该电路可通过串行装载配置任意三输入逻辑函数。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2013_q12",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "移位寄存器"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Shift Registers"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input enable,\n    input S,\n    input A, B, C,\n    output Z );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "rule90",
+    "order": 116,
+    "slug": "rule90",
+    "title": "元胞自动机：规则 90",
+    "titleEn": "Rule 90",
+    "description": "实现 512 个一维元胞。每拍各元胞的下一状态等于左右邻居的异或；两个外侧边界固定为 0。load 有效时优先装载 data[511:0]。",
+    "source": "https://hdlbits.01xz.net/wiki/rule90",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "更多电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "More Circuits"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input load,\n    input [511:0] data,\n    output [511:0] q );",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table><tbody><tr><th>左</th><th>中</th><th>右</th><th>中心下一状态</th></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>0</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "rule110",
+    "order": 117,
+    "slug": "rule110",
+    "title": "元胞自动机：规则 110",
+    "titleEn": "Rule 110",
+    "description": "实现 512 个元胞。左、中、右三位依次为 111、110、101、100、011、010、001、000 时，中心下一状态依次为 0、1、1、0、1、1、1、0。两端外邻居为 0，load 优先装载。",
+    "source": "https://hdlbits.01xz.net/wiki/rule110",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "更多电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "More Circuits"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input load,\n    input [511:0] data,\n    output [511:0] q\n);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table><tbody><tr><th>左</th><th>中</th><th>右</th><th>中心下一状态</th></tr>\n<tr><td>1</td><td>1</td><td>1</td><td>0</td></tr>\n<tr><td>1</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>1</td><td>1</td></tr>\n<tr><td>1</td><td>0</td><td>0</td><td>0</td></tr>\n<tr><td>0</td><td>1</td><td>1</td><td>1</td></tr>\n<tr><td>0</td><td>1</td><td>0</td><td>1</td></tr>\n<tr><td>0</td><td>0</td><td>1</td><td>1</td></tr>\n<tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "conwaylife",
+    "order": 118,
+    "slug": "conwaylife",
+    "title": "16×16 康威生命游戏",
+    "titleEn": "Conway's Game of Life 16x16",
+    "description": "256 位 q 表示 16×16 网格，每连续 16 位为一行，边界首尾相接形成环面。统计每格周围八格：邻居数为 3 则存活，为 2 则保持，其余情况死亡。load 优先装载，每拍同时更新全部格子。",
+    "source": "https://hdlbits.01xz.net/wiki/conwaylife",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "更多电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "More Circuits"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input load,\n    input [255:0] data,\n    output [255:0] q );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fsm1",
+    "order": 119,
+    "slug": "fsm1",
+    "title": "两状态 FSM：异步复位",
+    "titleEn": "Simple FSM 1 (asynchronous reset)",
+    "description": "实现图示的两状态 Moore 状态机。复位进入 B，采用异步复位。输出仅由当前状态决定。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm1",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,    \n    input in,\n    output out);",
+    "images": [
+      "/assets/b1c39e7233a1.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fsm1s",
+    "order": 120,
+    "slug": "fsm1s",
+    "title": "两状态 FSM：同步复位",
+    "titleEn": "Simple FSM 1 (synchronous reset)",
+    "description": "实现图示的两状态 Moore 状态机。复位进入 B，但只在有效时钟边沿响应复位。与上一题比较同步和异步复位的区别。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm1s",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(clk, reset, in, out);\n    input clk;\n    input reset;    \n    input in;\n    output out;",
+    "images": [
+      "/assets/957446dc93fd.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fsm2",
+    "order": 121,
+    "slug": "fsm2",
+    "title": "两输入 FSM：异步复位",
+    "titleEn": "Simple FSM 2 (asynchronous reset)",
+    "description": "按照下图实现双状态、双输入的 Moore 状态机。采用异步复位，状态转移由当前状态及输入决定。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm2",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,    \n    input j,\n    input k,\n    output out);",
+    "images": [
+      "/assets/cd553362a526.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fsm2s",
+    "order": 122,
+    "slug": "fsm2s",
+    "title": "两输入 FSM：同步复位",
+    "titleEn": "Simple FSM 2 (synchronous reset)",
+    "description": "实现图示 Moore 状态机，使用同步复位。保留图示各输入组合对应的状态保持与跳转关系。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm2s",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input reset,    \n    input j,\n    input k,\n    output out);",
+    "images": [
+      "/assets/473ec0be6e5a.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fsm3comb",
+    "order": 123,
+    "slug": "fsm3comb",
+    "title": "四状态 FSM：组合逻辑",
+    "titleEn": "Simple state transitions 3",
+    "description": "仅实现次态和输出组合逻辑，编码 A=00、B=01、C=10、D=11。in=0/1 时：A→A/B，B→C/B，C→A/D，D→C/B。仅 D 状态输出 1。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm3comb",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input in,\n    input [1:0] state,\n    output [1:0] next_state,\n    output out);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th rowspan=\"2\">状态</th><th colspan=\"2\">次态</th><th rowspan=\"2\">输出</th></tr>\n<tr><th>in=0</th><th>in=1</th></tr>\n<tr><td>A</td><td>A</td><td>B</td><td>0</td></tr>\n<tr><td>B</td><td>C</td><td>B</td><td>0</td></tr>\n<tr><td>C</td><td>A</td><td>D</td><td>0</td></tr>\n<tr><td>D</td><td>C</td><td>B</td><td>1</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "fsm3onehot",
+    "order": 124,
+    "slug": "fsm3onehot",
+    "title": "四状态 FSM：独热次态",
+    "titleEn": "Simple one-hot state transitions 3",
+    "description": "采用 A=0001、B=0010、C=0100、D=1000。状态转移与四状态组合练习相同；直接从各目标状态的入边推导布尔方程，不要把输入限制为合法独热码。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm3onehot",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input in,\n    input [3:0] state,\n    output [3:0] next_state,\n    output out);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th rowspan=\"2\">状态</th><th colspan=\"2\">次态</th><th rowspan=\"2\">输出</th></tr>\n<tr><th>in=0</th><th>in=1</th></tr>\n<tr><td>A</td><td>A</td><td>B</td><td>0</td></tr>\n<tr><td>B</td><td>C</td><td>B</td><td>0</td></tr>\n<tr><td>C</td><td>A</td><td>D</td><td>0</td></tr>\n<tr><td>D</td><td>C</td><td>B</td><td>1</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "fsm3",
+    "order": 125,
+    "slug": "fsm3",
+    "title": "四状态 FSM：异步复位",
+    "titleEn": "Simple FSM 3 (asynchronous reset)",
+    "description": "实现完整四状态 Moore 状态机，异步复位到 A。in=0/1 时：A→A/B，B→C/B，C→A/D，D→C/B；只有 D 的输出为 1。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm3",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input in,\n    input areset,\n    output out);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th rowspan=\"2\">状态</th><th colspan=\"2\">次态</th><th rowspan=\"2\">输出</th></tr>\n<tr><th>in=0</th><th>in=1</th></tr>\n<tr><td>A</td><td>A</td><td>B</td><td>0</td></tr>\n<tr><td>B</td><td>C</td><td>B</td><td>0</td></tr>\n<tr><td>C</td><td>A</td><td>D</td><td>0</td></tr>\n<tr><td>D</td><td>C</td><td>B</td><td>1</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "fsm3s",
+    "order": 126,
+    "slug": "fsm3s",
+    "title": "四状态 FSM：同步复位",
+    "titleEn": "Simple FSM 3 (synchronous reset)",
+    "description": "实现完整四状态 Moore 状态机，同步复位到 A。转移关系与 fsm3 相同：A→A/B，B→C/B，C→A/D，D→C/B（分别对应 in=0/1），输出仅在 D 为 1。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm3s",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input in,\n    input reset,\n    output out);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th rowspan=\"2\">状态</th><th colspan=\"2\">次态</th><th rowspan=\"2\">输出</th></tr>\n<tr><th>in=0</th><th>in=1</th></tr>\n<tr><td>A</td><td>A</td><td>B</td><td>0</td></tr>\n<tr><td>B</td><td>C</td><td>B</td><td>0</td></tr>\n<tr><td>C</td><td>A</td><td>D</td><td>0</td></tr>\n<tr><td>D</td><td>C</td><td>B</td><td>1</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "exams/ece241_2013_q4",
+    "order": 127,
+    "slug": "exams/ece241_2013_q4",
+    "title": "水位控制 Moore 状态机",
+    "titleEn": "Design a Moore FSM",
+    "description": "依据水位传感器和流量控制关系设计 Moore 状态机。高有效同步复位进入“水位长期低”的状态：传感器均未触发，四个输出均有效。详细传感器与水流条件请结合图示及原题核对。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2013_q4",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    input [3:1] s,\n    output fr3,\n    output fr2,\n    output fr1,\n    output dfr\n);",
+    "images": [
+      "/assets/57acd2bcb5b7.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "lemmings1",
+    "order": 128,
+    "slug": "lemmings1",
+    "title": "旅鼠 1：行走",
+    "titleEn": "Lemmings 1",
+    "description": "初始向左行走。只有撞到行进方向的障碍物才掉头；两侧同时碰撞也要掉头。用两状态 Moore 状态机产生 walk_left 和 walk_right。",
+    "source": "https://hdlbits.01xz.net/wiki/lemmings1",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,    \n    input bump_left,\n    input bump_right,\n    output walk_left,\n    output walk_right);",
+    "images": [
+      "/assets/9e90434ff7ea.gif"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.............."
+          },
+          {
+            "name": "bump_left",
+            "wave": "0....10..1.0..."
+          },
+          {
+            "name": "bump_right",
+            "wave": "0.10.....1.0..."
+          },
+          {
+            "name": "walk_left",
+            "wave": "1.....0...10..."
+          },
+          {
+            "name": "walk_right",
+            "wave": "0.....1...01..."
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "lemmings2",
+    "order": 129,
+    "slug": "lemmings2",
+    "title": "旅鼠 2：下落",
+    "titleEn": "Lemmings 2",
+    "description": "在行走状态基础上加入下落。ground=0 时停止行走并发出 aaah；落地后恢复掉落前的行走方向。下落及落地转换时的碰撞不改变方向，下落优先于碰撞。",
+    "source": "https://hdlbits.01xz.net/wiki/lemmings2",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,    \n    input bump_left,\n    input bump_right,\n    input ground,\n    output walk_left,\n    output walk_right,\n    output aaah );",
+    "images": [
+      "/assets/542bec5f5796.gif"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............."
+          },
+          {
+            "name": "bump_left",
+            "wave": "0.10..1......."
+          },
+          {
+            "name": "bump_right",
+            "wave": "0..10........."
+          },
+          {
+            "name": "ground",
+            "wave": "1.....0...1..."
+          },
+          {
+            "name": "walk_left",
+            "wave": "1..01..0...10."
+          },
+          {
+            "name": "walk_right",
+            "wave": "0..10.......1."
+          },
+          {
+            "name": "aaah",
+            "wave": "0......1...0.."
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "lemmings3",
+    "order": 130,
+    "slug": "lemmings3",
+    "title": "旅鼠 3：挖掘",
+    "titleEn": "Lemmings 3",
+    "description": "在地面行走且 dig=1 时进入挖掘，直到地面消失才转为下落，落地后恢复原行走方向。优先级为下落＞挖掘＞碰撞掉头。下落或挖掘期间忽略碰撞。",
+    "source": "https://hdlbits.01xz.net/wiki/lemmings3",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,    \n    input bump_left,\n    input bump_right,\n    input ground,\n    input dig,\n    output walk_left,\n    output walk_right,\n    output aaah,\n    output digging );",
+    "images": [
+      "/assets/b5bcd7916799.gif"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............."
+          },
+          [
+            "Inputs",
+            {
+              "name": "bump_left",
+              "wave": "0...10........"
+            },
+            {
+              "name": "bump_right",
+              "wave": "0............."
+            },
+            {
+              "name": "ground",
+              "wave": "1.....0..1...."
+            },
+            {
+              "name": "dig",
+              "wave": "0.10.....10..."
+            }
+          ],
+          [
+            "Outputs",
+            {
+              "name": "walk_left",
+              "wave": "1..0......1..."
+            },
+            {
+              "name": "walk_right",
+              "wave": "0............."
+            },
+            {
+              "name": "aaah",
+              "wave": "0......1..0..."
+            },
+            {
+              "name": "digging",
+              "wave": "0..1...0......"
+            }
+          ]
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "",
+            "",
+            "",
+            "bump ignored",
+            "",
+            "",
+            "",
+            "",
+            "dig ignored",
+            "",
+            ""
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "lemmings4",
+    "order": 131,
+    "slug": "lemmings4",
+    "title": "旅鼠 4：坠落计时",
+    "titleEn": "Lemmings 4",
+    "description": "扩展行走、下落和挖掘状态机：若连续下落超过 20 拍，落地时进入永久停止状态，四个输出全为 0，直到复位。恰好 20 拍可存活；不能在仍悬空时提前停止。",
+    "source": "https://hdlbits.01xz.net/wiki/lemmings4",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,    \n    input bump_left,\n    input bump_right,\n    input ground,\n    input dig,\n    output walk_left,\n    output walk_right,\n    output aaah,\n    output digging );",
+    "images": [
+      "/assets/f7ea2699db05.gif"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............"
+          },
+          {
+            "name": "ground",
+            "wave": "1.0...|..1..."
+          },
+          {
+            "name": "walk_left",
+            "wave": "1..0..|...1.."
+          },
+          {
+            "name": "aaah",
+            "wave": "0..1..|...0.."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "...",
+            "18",
+            "19",
+            "20"
+          ]
+        }
+      },
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............"
+          },
+          {
+            "name": "ground",
+            "wave": "1.0...|...1.."
+          },
+          {
+            "name": "walk_left",
+            "wave": "1..0..|......"
+          },
+          {
+            "name": "aaah",
+            "wave": "0..1..|....0."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "",
+            "",
+            "1",
+            "2",
+            "3",
+            "...",
+            "18",
+            "19",
+            "20",
+            "21",
+            "oops"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "fsm_onehot",
+    "order": 132,
+    "slug": "fsm_onehot",
+    "title": "独热编码状态机",
+    "titleEn": "One-hot FSM",
+    "description": "按图推导十状态 FSM 的次态与两个输出方程。state[0]～state[9] 对应 S0～S9；未标出的输出为 0。只实现组合逻辑，且方程需对非独热输入仍保持逐位逻辑含义。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_onehot",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input in,\n    input [9:0] state,\n    output [9:0] next_state,\n    output out1,\n    output out2);",
+    "images": [
+      "/assets/4db156f4005a.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "fsm_ps2",
+    "order": 133,
+    "slug": "fsm_ps2",
+    "title": "PS/2 数据包解析",
+    "titleEn": "PS/2 packet parser",
+    "description": "按字节接收数据，丢弃字节直到遇到 bit[3]=1，将其作为三字节包的首字节。接收后续两个字节后，下一周期拉高 done。数据包不重叠，后两字节不要求 bit[3]=1。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_ps2",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input [7:0] in,\n    input reset,    \n    output done);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p........."
+          },
+          {
+            "name": "reset",
+            "wave": "10........"
+          },
+          {
+            "name": "in[3]",
+            "wave": "x1x.1x.1x."
+          },
+          {
+            "name": "done",
+            "wave": "x0..10.10."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "byte1",
+            "byte2",
+            "byte3",
+            "byte1",
+            "byte2",
+            "byte3",
+            "byte1",
+            "byte2",
+            "byte3"
+          ]
+        }
+      },
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..........."
+          },
+          {
+            "name": "reset",
+            "wave": "10.........."
+          },
+          {
+            "name": "in[3]",
+            "wave": "x1x.0.1x.1x."
+          },
+          {
+            "name": "done",
+            "wave": "x0..10...10."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "byte1",
+            "byte2",
+            "byte3",
+            "?",
+            "?",
+            "byte1",
+            "byte2",
+            "byte3",
+            "byte1",
+            "byte2",
+            "byte3"
+          ]
+        }
+      },
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..........."
+          },
+          {
+            "name": "reset",
+            "wave": "10.........."
+          },
+          {
+            "name": "in[3]",
+            "wave": "010101......"
+          },
+          {
+            "name": "done",
+            "wave": "x0..10..10.1"
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "byte1",
+            "byte2",
+            "byte3",
+            "?",
+            "byte1",
+            "byte2",
+            "byte3",
+            "byte1",
+            "byte2",
+            "byte3"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "fsm_ps2data",
+    "order": 134,
+    "slug": "fsm_ps2data",
+    "title": "PS/2 解析与数据通路",
+    "titleEn": "PS/2 packet parser and datapath",
+    "description": "在三字节边界识别器上加入数据保存。done 有效时 out_bytes[23:16] 为首字节，[15:8] 为第二字节，[7:0] 为第三字节。其他周期的数据输出可不作要求。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_ps2data",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input [7:0] in,\n    input reset,    \n    output [23:0] out_bytes,\n    output done);",
+    "images": [],
+    "waves": [
+      {
+        "config": {
+          "hscale": 2
+        },
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p........."
+          },
+          {
+            "name": "reset",
+            "wave": "10........"
+          },
+          {
+            "name": "in[7:0]",
+            "wave": "x=========",
+            "data": [
+              "08",
+              "01",
+              "02",
+              "38",
+              "ff",
+              "fe",
+              "08",
+              "03",
+              "04"
+            ]
+          },
+          {
+            "name": "in[3]",
+            "wave": "x10.10.10."
+          },
+          {
+            "name": "done",
+            "wave": "x0..10.10."
+          },
+          {
+            "name": "out_bytes",
+            "wave": "x...=x.=x.",
+            "data": [
+              "080102",
+              "38fffe",
+              "080304"
+            ]
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "byte1",
+            "byte2",
+            "byte3",
+            "byte1",
+            "byte2",
+            "byte3",
+            "byte1",
+            "byte2",
+            "byte3"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "fsm_serial",
+    "order": 135,
+    "slug": "fsm_serial",
+    "title": "串行接收状态机",
+    "titleEn": "Serial receiver",
+    "description": "空闲电平为 1。识别起始位 0，接收八位数据，再检查停止位 1；成功后输出 done。若停止位缺失，丢弃该字节并等待线路回到 1，之后才能重新寻找起始位。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_serial",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input in,\n    input reset,    \n    output done\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.........................."
+          },
+          {
+            "name": "reset",
+            "wave": "10........................."
+          },
+          {
+            "name": "in",
+            "wave": "1.0x.......10x.......1..0x."
+          },
+          {
+            "name": "done",
+            "wave": "0...........10........10..."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "idle",
+            "",
+            "start",
+            "",
+            "",
+            "",
+            "data",
+            "",
+            "",
+            "",
+            "",
+            "stop",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "stop",
+            "",
+            "",
+            "start"
+          ]
+        }
+      },
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.........................."
+          },
+          {
+            "name": "reset",
+            "wave": "10........................."
+          },
+          {
+            "name": "in",
+            "wave": "1.0x.......0.10x.......10x."
+          },
+          {
+            "name": "done",
+            "wave": "0.......................10."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "idle",
+            "",
+            "start",
+            "",
+            "",
+            "",
+            "data",
+            "",
+            "",
+            "",
+            "",
+            "?",
+            "?!",
+            "",
+            "start",
+            "",
+            "",
+            "",
+            "data",
+            "",
+            "",
+            "",
+            "",
+            "stop"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "fsm_serialdata",
+    "order": 136,
+    "slug": "fsm_serialdata",
+    "title": "串行接收与数据通路",
+    "titleEn": "Serial receiver and datapath",
+    "description": "在串行接收状态机上保存八位数据。数据按最低位优先到达；仅在 done=1 时要求 out_byte 有效。错误停止位的恢复行为与上一题一致。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_serialdata",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input in,\n    input reset,    \n    output [7:0] out_byte,\n    output done\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.........................."
+          },
+          {
+            "name": "reset",
+            "wave": "10........................."
+          },
+          {
+            "name": "in",
+            "wave": "1.01.010.1010.10..1.01..0x.",
+            "node": "...A.......B.C.......D.",
+            "phase": 0
+          },
+          {
+            "name": "done",
+            "wave": "0...........10........10..."
+          },
+          {
+            "name": "out_byte",
+            "wave": "x...........=x........=x...",
+            "data": [
+              "4b",
+              "62"
+            ]
+          }
+        ],
+        "edge": [
+          "A<->B 0x4b",
+          "C<->D 0x62"
+        ],
+        "foot": {
+          "tock": [
+            "idle",
+            "",
+            "start",
+            "",
+            "",
+            "",
+            "data",
+            "",
+            "",
+            "",
+            "",
+            "stop",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "stop",
+            "",
+            "",
+            "start"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "fsm_serialdp",
+    "order": 137,
+    "slug": "fsm_serialdp",
+    "title": "带奇校验的串行接收",
+    "titleEn": "Serial receiver with parity checking",
+    "description": "帧顺序为起始位、八个数据位、奇校验位、停止位。九个数据与校验位中的 1 总数必须为奇数，且停止位正确，才拉高 done。可实例化给定 parity 模块计算奇偶性。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_serialdp",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input in,\n    input reset,    \n    output [7:0] out_byte,\n    output done\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............................"
+          },
+          {
+            "name": "reset",
+            "wave": "10..........................."
+          },
+          {
+            "name": "in",
+            "wave": "1.01.010.101.0.10..1.01...0x.",
+            "node": "...A.......B..C.......D.",
+            "phase": 0
+          },
+          {
+            "name": "done",
+            "wave": "0............10.............."
+          },
+          {
+            "name": "out_byte",
+            "wave": "x............=x..............",
+            "data": [
+              "4b",
+              "62"
+            ]
+          }
+        ],
+        "edge": [
+          "A<->B 0x4b",
+          "C<->D 0x62"
+        ],
+        "foot": {
+          "tock": [
+            "idle",
+            "",
+            "start",
+            "",
+            "",
+            "",
+            "data",
+            "",
+            "",
+            "",
+            "",
+            "parity",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "parity",
+            "",
+            "",
+            "",
+            "start"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "fsm_hdlc",
+    "order": 138,
+    "slug": "fsm_hdlc",
+    "title": "HDLC 序列识别",
+    "titleEn": "Sequence recognition",
+    "description": "识别连续位流：0111110 表示应丢弃填充零，拉高 disc；01111110 为帧标志，拉高 flag；连续至少七个 1 时拉高 err。复位后按此前刚收到 0 的状态工作。",
+    "source": "https://hdlbits.01xz.net/wiki/fsm_hdlc",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input reset,    \n    input in,\n    output disc,\n    output flag,\n    output err);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.........."
+          },
+          {
+            "name": "in",
+            "wave": "x01....0x..",
+            "node": ".......a..."
+          },
+          {
+            "name": "disc",
+            "wave": "0.......10.",
+            "node": "........b.."
+          },
+          {
+            "name": "flag",
+            "wave": "0.........."
+          },
+          {
+            "name": "err",
+            "wave": "0.........."
+          }
+        ],
+        "edge": [
+          "a-~>b"
+        ]
+      },
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..........."
+          },
+          {
+            "name": "in",
+            "wave": "x01.....0x..",
+            "node": "........a..."
+          },
+          {
+            "name": "disc",
+            "wave": "0..........."
+          },
+          {
+            "name": "flag",
+            "wave": "0........10.",
+            "node": ".........b.."
+          },
+          {
+            "name": "err",
+            "wave": "0..........."
+          }
+        ],
+        "edge": [
+          "a-~>b"
+        ]
+      },
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p.............."
+          },
+          {
+            "name": "reset",
+            "wave": "x10.......|...."
+          },
+          {
+            "name": "in",
+            "wave": "x.1.......|.0x.",
+            "node": "........a...c."
+          },
+          {
+            "name": "disc",
+            "wave": "0.........|...."
+          },
+          {
+            "name": "flag",
+            "wave": "0.........|...."
+          },
+          {
+            "name": "err",
+            "wave": "0........1|..0.",
+            "node": ".........b...d."
+          }
+        ],
+        "edge": [
+          "a-~>b",
+          "c-~>d"
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2013_q8",
+    "order": 139,
+    "slug": "exams/ece241_2013_q8",
+    "title": "Mealy 序列检测器",
+    "titleEn": "Q8: Design a Mealy FSM",
+    "description": "用三个状态实现可重叠的 101 检测器，输入为 x，检测到完整序列时 z=1。采用低有效异步复位。Mealy 输出同时取决于当前状态和当前输入。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2013_q8",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input aresetn,    \n    input x,\n    output z );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q5a",
+    "order": 140,
+    "slug": "exams/ece241_2014_q5a",
+    "title": "串行补码器：Moore 型",
+    "titleEn": "Q5a: Serial two's complementer (Moore FSM)",
+    "description": "输入 x 按最低位优先逐拍到达，输出 Z 为该任意长度二进制数的二进制补码。异步 Reset 释放后开始转换，重新置位时结束。用 Moore 状态机描述输出时序。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q5a",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input areset,\n    input x,\n    output z\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "Input (x)",
+            "wave": "0.101.0."
+          },
+          {
+            "name": "Output (z)",
+            "wave": "0..1.0.1"
+          }
+        ],
+        "foot": {
+          "tock": [
+            "LSB",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "MSB"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/ece241_2014_q5b",
+    "order": 141,
+    "slug": "exams/ece241_2014_q5b",
+    "title": "串行补码器：Mealy 型",
+    "titleEn": "Q5b: Serial two's complementer (Mealy FSM)",
+    "description": "根据下图实现串行二进制补码器，采用独热编码和 Mealy 输出。最低有效位先到达，结合首个 1 前后的转换规则理解状态。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/ece241_2014_q5b",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input areset,\n    input x,\n    output z\n);",
+    "images": [
+      "/assets/cf593ad0d1e4.png"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "Input (x)",
+            "wave": "0.101.0."
+          },
+          {
+            "name": "Output (z)",
+            "wave": "0.1.0.1."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "LSB",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "MSB"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/2014_q3fsm",
+    "order": 142,
+    "slug": "exams/2014_q3fsm",
+    "title": "三拍窗口计数状态机",
+    "titleEn": "Q3a: FSM",
+    "description": "复位停在 A，s=1 后开始分组检查 w。每组三拍中恰好有两拍 w=1，则下一拍 z=1，否则 z=0；随后继续检查下一组，不使用滑动窗口。离开 A 后不再使用 s。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2014_q3fsm",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,   \n    input s,\n    input w,\n    output z\n);",
+    "images": [
+      "/assets/b1d81cf8b5ae.png"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............"
+          },
+          {
+            "name": "s",
+            "wave": "01x.........."
+          },
+          {
+            "name": "w",
+            "wave": "0.101..0.1.0."
+          },
+          {
+            "name": "z",
+            "wave": "0....10.10.10"
+          }
+        ],
+        "foot": {
+          "tock": [
+            "A",
+            "A",
+            "B",
+            "..."
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/2014_q3bfsm",
+    "order": 143,
+    "slug": "exams/2014_q3bfsm",
+    "title": "按状态表实现 FSM",
+    "titleEn": "Q3b: FSM",
+    "description": "实现下方状态分配表中的完整状态机，复位状态为 000。区分现态 y、次态 Y 和输出 z，未用编码可自行选择合理的恢复状态。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2014_q3bfsm",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,   \n    input x,\n    output z\n);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th rowspan=\"2\">现态<br/>y[2:0]</th><th colspan=\"2\">次态 Y[2:0]</th><th rowspan=\"2\">输出 z</th></tr>\n<tr><th>x=0</th><th>x=1</th></tr>\n<tr><td>000</td><td>000</td><td>001</td><td>0</td></tr>\n<tr><td>001</td><td>001</td><td>100</td><td>0</td></tr>\n<tr><td>010</td><td>010</td><td>001</td><td>0</td></tr>\n<tr><td>011</td><td>001</td><td>010</td><td>1</td></tr>\n<tr><td>100</td><td>011</td><td>100</td><td>1</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "exams/2014_q3c",
+    "order": 144,
+    "slug": "exams/2014_q3c",
+    "title": "状态机输出与次态逻辑",
+    "titleEn": "Q3c: FSM logic",
+    "description": "依据下方状态表，仅实现 Y[0] 与 z 的逻辑函数，不添加状态寄存器。输入 y[2:0] 是已给定的当前状态。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2014_q3c",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input [2:0] y,\n    input x,\n    output Y0,\n    output z\n);",
+    "images": [],
+    "waves": [],
+    "tables": [
+      "<table>\n<tbody><tr><th rowspan=\"2\">现态<br/>y[2:0]</th><th colspan=\"2\">次态 Y[2:0]</th><th rowspan=\"2\">输出 z</th></tr>\n<tr><th>x=0</th><th>x=1</th></tr>\n<tr><td>000</td><td>000</td><td>001</td><td>0</td></tr>\n<tr><td>001</td><td>001</td><td>100</td><td>0</td></tr>\n<tr><td>010</td><td>010</td><td>001</td><td>0</td></tr>\n<tr><td>011</td><td>001</td><td>010</td><td>1</td></tr>\n<tr><td>100</td><td>011</td><td>100</td><td>1</td></tr>\n</tbody></table>"
+    ]
+  },
+  {
+    "id": "exams/m2014_q6b",
+    "order": 145,
+    "slug": "exams/m2014_q6b",
+    "title": "二进制编码次态逻辑",
+    "titleEn": "Q6b: FSM next-state logic",
+    "description": "图中 A～F 依次编码为 y[3:1]=000～101。只实现 y[2] 对应的次态表达式；先根据状态图列出每种现态和输入 w 的目标状态。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q6b",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input [3:1] y,\n    input w,\n    output Y2);",
+    "images": [
+      "/assets/a1ea27135c73.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q6c",
+    "order": 146,
+    "slug": "exams/m2014_q6c",
+    "title": "独热编码次态逻辑",
+    "titleEn": "Q6c: FSM one-hot next-state logic",
+    "description": "A～F 分别对应 y[1]～y[6]。根据状态图入边直接推导 Y2 与 Y4 的组合方程；不要以完整码字相等判断替代独热布尔方程。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q6c",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input [6:1] y,\n    input w,\n    output Y2,\n    output Y4);",
+    "images": [
+      "/assets/a1ea27135c73.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/m2014_q6",
+    "order": 147,
+    "slug": "exams/m2014_q6",
+    "title": "六状态 FSM",
+    "titleEn": "Q6: FSM",
+    "description": "实现图示六状态状态机，包括状态寄存器、转移逻辑与输出 z。可把组合逻辑与时序逻辑分离，便于核对每条转移。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/m2014_q6",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,     \n    input w,\n    output z);",
+    "images": [
+      "/assets/a1ea27135c73.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2012_q2fsm",
+    "order": 148,
+    "slug": "exams/2012_q2fsm",
+    "title": "状态图实现练习",
+    "titleEn": "Q2a: FSM",
+    "description": "根据下方状态图实现完整 FSM。分别描述组合次态逻辑与时序状态寄存器，输出 z 可使用连续赋值或组合块。状态编码可自行选择。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2012_q2fsm",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,   \n    input w,\n    output z\n);",
+    "images": [
+      "/assets/85f24157a04c.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2012_q2b",
+    "order": 149,
+    "slug": "exams/2012_q2b",
+    "title": "独热次态方程",
+    "titleEn": "Q2b: One-hot FSM equations",
+    "description": "用 y[5:0] 的六个位分别表示 A～F。只推导并实现状态触发器 y[1]、y[3] 的输入 Y1、Y3，按所有指向目标状态的边进行或组合。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2012_q2b",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input [5:0] y,\n    input w,\n    output Y1,\n    output Y3\n);",
+    "images": [
+      "/assets/85f24157a04c.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2013_q2afsm",
+    "order": 150,
+    "slug": "exams/2013_q2afsm",
+    "title": "三请求资源仲裁器",
+    "titleEn": "Q2a: FSM",
+    "description": "空闲状态 A 下按设备 1＞2＞3 的优先级响应 r[i] 请求。获准设备的 g[i] 持续为 1，直到它撤销自己的请求；期间不抢占。依据状态图实现寄存器与输出。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2013_q2afsm",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input resetn,    \n    input [3:1] r,   \n    output [3:1] g   \n);",
+    "images": [
+      "/assets/91a382d26c52.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/2013_q2bfsm",
+    "order": 151,
+    "slug": "exams/2013_q2bfsm",
+    "title": "电机控制状态机",
+    "titleEn": "Q2b: Another FSM",
+    "description": "resetn 释放后，下一拍产生一个周期的 f 脉冲。随后在 x 中检测连续 101，检测后下一拍拉高 g。之后两拍内若 y 曾为 1，g 永久保持 1；否则永久置 0，直到复位。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/2013_q2bfsm",
+    "path": [
+      "电路设计",
+      "时序逻辑",
+      "有限状态机"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Sequential Logic",
+      "Finite State Machines"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input resetn,    \n    input x,\n    input y,\n    output f,\n    output g\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_count1k",
+    "order": 152,
+    "slug": "exams/review2015_count1k",
+    "title": "周期 1000 的计数器",
+    "titleEn": "Counter with period 1000",
+    "description": "实现从 0 到 999 的循环计数器，每 1000 拍重复一次。同步 reset 将计数值清零。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_count1k",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,\n    output [9:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..............."
+          },
+          {
+            "name": "reset",
+            "wave": "0............10."
+          },
+          {
+            "name": "q",
+            "wave": "================",
+            "data": [
+              "...",
+              "990",
+              "991",
+              "992",
+              "993",
+              "994",
+              "995",
+              "996",
+              "997",
+              "998",
+              "999",
+              "0",
+              "1",
+              "2",
+              "0",
+              "1"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_shiftcount",
+    "order": 153,
+    "slug": "exams/review2015_shiftcount",
+    "title": "四位移位与递减计数器",
+    "titleEn": "4-bit shift register and down counter",
+    "description": "shift_ena 有效时串行移入 data，输入按最高位优先到达；count_ena 有效时将四位当前值减 1。系统不会同时使用两个使能，因此二者同时为 1 时的优先级不限。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_shiftcount",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input shift_ena,\n    input count_ena,\n    input data,\n    output [3:0] q);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..............."
+          },
+          {
+            "name": "shift_ena",
+            "wave": "0.1...0........."
+          },
+          {
+            "name": "count_ena",
+            "wave": "0........1....0."
+          },
+          {
+            "name": "data",
+            "wave": "x.10.1x........."
+          },
+          {
+            "name": "q",
+            "wave": "=..====...=====.",
+            "data": [
+              "0",
+              "1",
+              "2",
+              "4",
+              "9",
+              "8",
+              "7",
+              "6",
+              "5",
+              "4"
+            ]
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_fsmseq",
+    "order": 154,
+    "slug": "exams/review2015_fsmseq",
+    "title": "识别序列 1101",
+    "titleEn": "FSM: Sequence 1101 recognizer",
+    "description": "在串行 data 中检测序列 1101。一旦发现，将 start_shifting 置 1 并保持，直到 reset。注意连续前缀重叠时应保留仍可能匹配的部分。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_fsmseq",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,      \n    input data,\n    output start_shifting);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..............."
+          },
+          {
+            "name": "reset",
+            "wave": "10............1."
+          },
+          {
+            "name": "data",
+            "wave": "0.101....01.0.1."
+          },
+          {
+            "name": "start_shifting",
+            "wave": "0..........1...0"
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_fsmshift",
+    "order": 155,
+    "slug": "exams/review2015_fsmshift",
+    "title": "精确使能四拍",
+    "titleEn": "FSM: Enable shift register",
+    "description": "复位后让 shift_ena 连续有效四个时钟周期，然后永久置 0，直到再次复位。该单元是复杂计时器的装载控制部分。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_fsmshift",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,      \n    output shift_ena);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p..............."
+          },
+          {
+            "name": "reset",
+            "wave": "10.....1..0....."
+          },
+          {
+            "name": "shift_ena",
+            "wave": "01...0..1.....0."
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_fsm",
+    "order": 156,
+    "slug": "exams/review2015_fsm",
+    "title": "完整计时控制 FSM",
+    "titleEn": "FSM: The complete FSM",
+    "description": "先检测 1101，再令 shift_ena 有效四拍；随后拉高 counting 等待 done_counting。计数结束后拉高 done 并等待 ack，收到确认后重新搜索 1101。只实现控制状态机，不含数据通路。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_fsm",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,      \n    input data,\n    output shift_ena,\n    output counting,\n    input done_counting,\n    output done,\n    input ack );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p............................."
+          },
+          {
+            "name": "reset",
+            "wave": "10............................"
+          },
+          {
+            "name": "data",
+            "wave": "010.1.01x............1.01x...."
+          },
+          {
+            "name": "shift_ena",
+            "wave": "0.......1...0............1...0"
+          },
+          {
+            "name": "counting",
+            "wave": "0...........1....0...........1"
+          },
+          {
+            "name": "done_counting",
+            "wave": "x...........0...1x...........0"
+          },
+          {
+            "name": "done",
+            "wave": "0................1...0........"
+          },
+          {
+            "name": "ack",
+            "wave": "x................0..1x........"
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_fancytimer",
+    "order": 157,
+    "slug": "exams/review2015_fancytimer",
+    "title": "完整可编程计时器",
+    "titleEn": "The complete timer",
+    "description": "识别 1101 后，按最高位优先接收四位 delay。随后 counting 有效，精确等待 (delay+1)×1000 拍；count 每 1000 拍递减，包含值为 0 的最后 1000 拍。结束时拉高 done，收到 ack 后重新等待触发。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_fancytimer",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input reset,      \n    input data,\n    output [3:0] count,\n    output counting,\n    output done,\n    input ack );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p...............|.................."
+          },
+          {
+            "name": "reset",
+            "wave": "10..............|.................."
+          },
+          {
+            "name": "data",
+            "wave": "010.1.010..1x...|........1.01...0x."
+          },
+          {
+            "name": "count[3:0]",
+            "wave": "x...........=...|=...x...........=.",
+            "data": [
+              "1",
+              "0",
+              "e"
+            ]
+          },
+          {
+            "name": "counting",
+            "wave": "0...........1...|....0...........1."
+          },
+          {
+            "name": "done",
+            "wave": "0...............|....1...0........."
+          },
+          {
+            "name": "ack",
+            "wave": "x...............|....0..1x........."
+          }
+        ],
+        "foot": {
+          "tock": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "0",
+            "1",
+            "2",
+            "3",
+            "...",
+            "1996",
+            "",
+            "",
+            "1999",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "0",
+            "1"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "exams/review2015_fsmonehot",
+    "order": 158,
+    "slug": "exams/review2015_fsmonehot",
+    "title": "计时器独热逻辑",
+    "titleEn": "FSM: One-hot logic equations",
+    "description": "图示十个状态按 S、S1、S11、S110、B0～B3、Count、Wait 依次占据独热码各位。只实现指定的五个次态信号，以及 done、counting、shift_ena 输出方程，不含状态寄存器。",
+    "source": "https://hdlbits.01xz.net/wiki/exams/review2015_fsmonehot",
+    "path": [
+      "电路设计",
+      "构建大型电路"
+    ],
+    "pathEn": [
+      "Circuits",
+      "Building Larger Circuits"
+    ],
+    "ports": "module top_module(\n    input d,\n    input done_counting,\n    input ack,\n    input [9:0] state,    \n    output B3_next,\n    output S_next,\n    output S1_next,\n    output Count_next,\n    output Wait_next,\n    output done,\n    output counting,\n    output shift_ena\n);",
+    "images": [
+      "/assets/7bd3a07f7a26.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bugs_mux2",
+    "order": 159,
+    "slug": "bugs_mux2",
+    "title": "调试：二选一选择器",
+    "titleEn": "Mux",
+    "description": "练习检查八位二选一组合选择器：选择信号变化后输出应立即响应。可在编辑器中编写实现，或导入自己的待调试版本；核对敏感列表、端口和赋值类型。",
+    "source": "https://hdlbits.01xz.net/wiki/bugs_mux2",
+    "path": [
+      "验证：阅读仿真波形",
+      "查找代码错误"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Finding bugs in code"
+    ],
+    "ports": "module top_module (\n    input sel,\n    input [7:0] a,\n    input [7:0] b,\n    output [7:0] out  );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bugs_nand3",
+    "order": 160,
+    "slug": "bugs_nand3",
+    "title": "调试：三输入与非门",
+    "titleEn": "NAND",
+    "description": "使用给定五输入 andgate 构造三输入与非门。未使用的与门输入应连接适当常量，输出还需取反；检查端口位置与实例连接。",
+    "source": "https://hdlbits.01xz.net/wiki/bugs_nand3",
+    "path": [
+      "验证：阅读仿真波形",
+      "查找代码错误"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Finding bugs in code"
+    ],
+    "ports": "module top_module (input a, input b, input c, output out);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bugs_mux4",
+    "order": 161,
+    "slug": "bugs_mux4",
+    "title": "调试：四选一选择器",
+    "titleEn": "Mux",
+    "description": "使用给定且正确的八位 mux2 组成四选一选择器。核对每一级 sel 位、a/b 顺序、中间信号的八位宽度以及最终 out 连接。",
+    "source": "https://hdlbits.01xz.net/wiki/bugs_mux4",
+    "path": [
+      "验证：阅读仿真波形",
+      "查找代码错误"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Finding bugs in code"
+    ],
+    "ports": "module top_module (\n    input [1:0] sel,\n    input [7:0] a,\n    input [7:0] b,\n    input [7:0] c,\n    input [7:0] d,\n    output [7:0] out  );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bugs_addsubz",
+    "order": 162,
+    "slug": "bugs_addsubz",
+    "title": "调试：加减器与零标志",
+    "titleEn": "Add/sub",
+    "description": "检查加减选择、算术结果与零标志的组合逻辑。结果变化后零标志必须同步反映结果是否为零，避免敏感列表遗漏和过程赋值顺序造成的旧值问题。具体操作极性以原题接口为准。",
+    "source": "https://hdlbits.01xz.net/wiki/bugs_addsubz",
+    "path": [
+      "验证：阅读仿真波形",
+      "查找代码错误"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Finding bugs in code"
+    ],
+    "ports": "module top_module ( \n    input do_sub,\n    input [7:0] a,\n    input [7:0] b,\n    output reg [7:0] out,\n    output reg result_is_zero\n);",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "bugs_case",
+    "order": 163,
+    "slug": "bugs_case",
+    "title": "调试：数字键扫描码",
+    "titleEn": "Case statement",
+    "description": "实现或调试八位键盘扫描码到数字 0～9 的映射，同时输出 valid 表示是否识别。未匹配时 valid=0，完整赋值避免锁存器；具体扫描码请核对原题。",
+    "source": "https://hdlbits.01xz.net/wiki/bugs_case",
+    "path": [
+      "验证：阅读仿真波形",
+      "查找代码错误"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Finding bugs in code"
+    ],
+    "ports": "module top_module (\n    input [7:0] code,\n    output reg [3:0] out,\n    output reg valid=1 );",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit1",
+    "order": 164,
+    "slug": "sim/circuit1",
+    "title": "读波形：组合电路 1",
+    "titleEn": "Combinational circuit 1",
+    "description": "从下面输入 a、b 和输出 q 的波形提取真值关系，编写不含寄存器的组合电路。选择每个稳定时间段核对输入与输出。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit1",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input a,\n    input b,\n    output q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "0....1...0...1...0"
+            },
+            {
+              "name": "b",
+              "wave": "0..1.0.1.0.1.0.1.0"
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "0......1.0.....1.0"
+            }
+          ],
+          {
+            "name": ""
+          }
+        ],
+        "foot": {
+          "tick": [
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit2",
+    "order": 165,
+    "slug": "sim/circuit2",
+    "title": "读波形：组合电路 2",
+    "titleEn": "Combinational circuit 2",
+    "description": "观察所有输入组合对应的 q，归纳该组合电路功能。输出只依赖当前输入，不应使用时钟或历史状态。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit2",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input a,\n    input b,\n    input c,\n    input d,\n    output q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "0........1.......0."
+            },
+            {
+              "name": "b",
+              "wave": "0....1...0...1...0."
+            },
+            {
+              "name": "c",
+              "wave": "0..1.0.1.0.1.0.1.0."
+            },
+            {
+              "name": "d",
+              "wave": "0.10101010101010101"
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "1.0.101.0.1.010.1.0"
+            }
+          ],
+          {
+            "name": ""
+          }
+        ],
+        "foot": {
+          "tick": [
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "95"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit3",
+    "order": 166,
+    "slug": "sim/circuit3",
+    "title": "读波形：组合电路 3",
+    "titleEn": "Combinational circuit 3",
+    "description": "阅读波形中的输入总线与输出关系，推导组合函数。对于总线，先核对标注数值的进制和端口位宽。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit3",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input a,\n    input b,\n    input c,\n    input d,\n    output q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "0........1.......0."
+            },
+            {
+              "name": "b",
+              "wave": "0....1...0...1...0."
+            },
+            {
+              "name": "c",
+              "wave": "0..1.0.1.0.1.0.1.0."
+            },
+            {
+              "name": "d",
+              "wave": "0.10101010101010101"
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "0.....1..01..01..0."
+            }
+          ],
+          {
+            "name": ""
+          }
+        ],
+        "foot": {
+          "tick": [
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "95"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit4",
+    "order": 167,
+    "slug": "sim/circuit4",
+    "title": "读波形：组合电路 4",
+    "titleEn": "Combinational circuit 4",
+    "description": "根据给出的仿真波形重建组合电路。可先列出观察到的输入输出表，再化简表达式并检查边界输入。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit4",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input a,\n    input b,\n    input c,\n    input d,\n    output q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "0........1.......0."
+            },
+            {
+              "name": "b",
+              "wave": "0....1...0...1...0."
+            },
+            {
+              "name": "c",
+              "wave": "0..1.0.1.0.1.0.1.0."
+            },
+            {
+              "name": "d",
+              "wave": "0.10101010101010101"
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "0..1.....0.1.....0."
+            }
+          ],
+          {
+            "name": ""
+          }
+        ],
+        "foot": {
+          "tick": [
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "95"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit5",
+    "order": 168,
+    "slug": "sim/circuit5",
+    "title": "读波形：组合电路 5",
+    "titleEn": "Combinational circuit 5",
+    "description": "综合下方两组仿真波形推导同一个组合电路。不要只匹配单个样例序列，应找出对两组输入均成立的逻辑关系。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit5",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input [3:0] a,\n    input [3:0] b,\n    input [3:0] c,\n    input [3:0] d,\n    input [3:0] e,\n    output [3:0] q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "x=.................",
+              "data": [
+                "a"
+              ]
+            },
+            {
+              "name": "b",
+              "wave": "x=.................",
+              "data": [
+                "b"
+              ]
+            },
+            {
+              "name": "c",
+              "wave": "x==================",
+              "data": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "9",
+                "a",
+                "b",
+                "c",
+                "d",
+                "e",
+                "f",
+                "0",
+                "1"
+              ]
+            },
+            {
+              "name": "d",
+              "wave": "x=.................",
+              "data": [
+                "d"
+              ]
+            },
+            {
+              "name": "e",
+              "wave": "x=.................",
+              "data": [
+                "e"
+              ]
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "x=====...........==",
+              "data": [
+                "b",
+                "e",
+                "a",
+                "d",
+                "f",
+                "b",
+                "e"
+              ]
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "95"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      },
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "==.........=.......",
+              "data": [
+                "a",
+                "1",
+                "5"
+              ]
+            },
+            {
+              "name": "b",
+              "wave": "==.........=.......",
+              "data": [
+                "b",
+                "2",
+                "6"
+              ]
+            },
+            {
+              "name": "c",
+              "wave": "==========.========",
+              "data": [
+                "2",
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "8",
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7"
+              ]
+            },
+            {
+              "name": "d",
+              "wave": "==.........=.......",
+              "data": [
+                "d",
+                "3",
+                "7"
+              ]
+            },
+            {
+              "name": "e",
+              "wave": "==.........=.......",
+              "data": [
+                "e",
+                "4",
+                "8"
+              ]
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "======.....=====...",
+              "data": [
+                "a",
+                "2",
+                "4",
+                "1",
+                "3",
+                "f",
+                "6",
+                "8",
+                "5",
+                "7",
+                "f"
+              ]
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "105",
+            "110",
+            "115",
+            "120",
+            "125",
+            "130",
+            "135",
+            "140",
+            "145",
+            "150",
+            "155",
+            "160",
+            "165",
+            "170",
+            "175",
+            "180",
+            "185",
+            "190",
+            "195"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit6",
+    "order": 169,
+    "slug": "sim/circuit6",
+    "title": "读波形：组合电路 6",
+    "titleEn": "Combinational circuit 6",
+    "description": "结合全部波形推导组合逻辑。注意选择信号与数据输入的角色，并区分按位运算与逻辑运算。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit6",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input [2:0] a,\n    output [15:0] q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "a",
+              "wave": "x==========",
+              "data": [
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "7",
+                "0",
+                "1"
+              ]
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "x==========",
+              "data": [
+                "1232",
+                "aee0",
+                "27d4",
+                "5a0e",
+                "2066",
+                "64ce",
+                "c526",
+                "2f19",
+                "1232",
+                "aee0"
+              ]
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55"
+          ]
+        },
+        "config": {
+          "hscale": 2
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit7",
+    "order": 170,
+    "slug": "sim/circuit7",
+    "title": "读波形：时序电路 7",
+    "titleEn": "Sequential circuit 7",
+    "description": "这是带状态的电路。比较时钟边沿前后的输入输出，确定采样边沿和输出延迟，再实现相应寄存器逻辑。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit7",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input a,\n    output q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "clk",
+              "wave": "lhlhlhlhlhlhlhlhlhlhl"
+            },
+            {
+              "name": "a",
+              "wave": "0............1......."
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "x1.............0....."
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "",
+            "20",
+            "",
+            "30",
+            "",
+            "40",
+            "",
+            "50",
+            "",
+            "60",
+            "",
+            "70",
+            "",
+            "80",
+            "",
+            "90",
+            "",
+            "100",
+            "",
+            "110",
+            ""
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit8",
+    "order": 171,
+    "slug": "sim/circuit8",
+    "title": "读波形：时序电路 8",
+    "titleEn": "Sequential circuit 8",
+    "description": "从波形确定时序电路行为，特别检查输入变化是否需要等到时钟边沿才能影响输出。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit8",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input clock,\n    input a,\n    output p,\n    output q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "clock",
+              "wave": "0....1.....0.....1.....0...."
+            },
+            {
+              "name": "a",
+              "wave": "0.10101010101010.....1010101"
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "p",
+              "wave": "0.....10101......0...10....."
+            },
+            {
+              "name": "q",
+              "wave": "0..........1...........0...."
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "65",
+            "70",
+            "75",
+            "80",
+            "85",
+            "90",
+            "95",
+            "100",
+            "105",
+            "110",
+            "115",
+            "120",
+            "125",
+            "130",
+            "135",
+            "140",
+            "145",
+            "150",
+            "155",
+            "160",
+            "165",
+            "170",
+            "175",
+            "180",
+            "185",
+            "190",
+            "195",
+            "200"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit9",
+    "order": 172,
+    "slug": "sim/circuit9",
+    "title": "读波形：时序电路 9",
+    "titleEn": "Sequential circuit 9",
+    "description": "分析波形中的控制信号、时钟及输出变化，归纳更新条件与状态保持规则，使用时序逻辑实现。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit9",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input a,\n    output [3:0] q );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "clk",
+              "wave": "lhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhlhl"
+            },
+            {
+              "name": "a",
+              "wave": "1....0......................1....0......."
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "=......=.=.=.=.=.=.=.=.=.=.=.=.....=.=.=.",
+              "data": [
+                "4",
+                "5",
+                "6",
+                "0",
+                "1",
+                "2",
+                "3",
+                "4",
+                "5",
+                "6",
+                "0",
+                "1",
+                "4",
+                "5",
+                "6",
+                "0"
+              ]
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "",
+            "20",
+            "",
+            "30",
+            "",
+            "40",
+            "",
+            "50",
+            "",
+            "60",
+            "",
+            "70",
+            "",
+            "80",
+            "",
+            "90",
+            "",
+            "100",
+            "",
+            "110",
+            "",
+            "120",
+            "",
+            "130",
+            "",
+            "140",
+            "",
+            "150",
+            "",
+            "160",
+            "",
+            "170",
+            "",
+            "180",
+            "",
+            "190",
+            "",
+            "200",
+            "",
+            "210",
+            ""
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "sim/circuit10",
+    "order": 173,
+    "slug": "sim/circuit10",
+    "title": "读波形：一位状态电路",
+    "titleEn": "Sequential circuit 10",
+    "description": "电路由组合逻辑与一个触发器构成，state 显示触发器当前值。分别推导次态函数与输出函数，并按波形确定触发边沿。",
+    "source": "https://hdlbits.01xz.net/wiki/sim/circuit10",
+    "path": [
+      "验证：阅读仿真波形",
+      "根据波形构建电路"
+    ],
+    "pathEn": [
+      "Verification: Reading Simulations",
+      "Build a circuit from a simulation waveform"
+    ],
+    "ports": "module top_module (\n    input clk,\n    input a,\n    input b,\n    output q,\n    output state  );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "clk",
+              "wave": "lhlhlhlhlhlhlhlhlhlhlhlhlhlh"
+            },
+            {
+              "name": "a",
+              "wave": "0......1...0.1.......0......"
+            },
+            {
+              "name": "b",
+              "wave": "0....1.0.1.0.1.....0.1.0...."
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "q",
+              "wave": "0....1...0.1.0.1...0...1.0.."
+            },
+            {
+              "name": "state",
+              "wave": "0..........1.0.1.........0.."
+            }
+          ]
+        ],
+        "foot": {
+          "tick": [
+            "",
+            "20",
+            "",
+            "30",
+            "",
+            "40",
+            "",
+            "50",
+            "",
+            "60",
+            "",
+            "70",
+            "",
+            "80",
+            "",
+            "90",
+            "",
+            "100",
+            "",
+            "110",
+            "",
+            "120",
+            "",
+            "130",
+            "",
+            "140",
+            "",
+            "150"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "tb/clock",
+    "order": 174,
+    "slug": "tb/clock",
+    "title": "测试平台：时钟",
+    "titleEn": "Clock",
+    "description": "实例化输入端为 clk 的 dut，生成周期 10 ps 的时钟。初值为 0，首次跳变为 0→1，每半周期切换一次。",
+    "source": "https://hdlbits.01xz.net/wiki/tb/clock",
+    "path": [
+      "验证：编写测试平台"
+    ],
+    "pathEn": [
+      "Verification: Writing Testbenches"
+    ],
+    "ports": "module top_module ( );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "0101010101"
+          }
+        ],
+        "foot": {
+          "tick": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "..."
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "tb/tb1",
+    "order": 175,
+    "slug": "tb/tb1",
+    "title": "测试平台 1",
+    "titleEn": "Testbench1",
+    "description": "使用 initial 与延时控制，使 A、B 完全按照下方时序图变化。时间点和初始值都属于测试平台要求。",
+    "source": "https://hdlbits.01xz.net/wiki/tb/tb1",
+    "path": [
+      "验证：编写测试平台"
+    ],
+    "pathEn": [
+      "Verification: Writing Testbenches"
+    ],
+    "ports": "module top_module ( output reg A, output reg B );",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "A",
+            "wave": "0.1.0......"
+          },
+          {
+            "name": "B",
+            "wave": "0..1....0.."
+          }
+        ],
+        "foot": {
+          "tick": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "tb/and",
+    "order": 176,
+    "slug": "tb/and",
+    "title": "测试平台：与门",
+    "titleEn": "AND gate",
+    "description": "实例化两位输入的 andgate，并按下方波形遍历 00、01、10、11 四种组合。时序与保持时间应与示图一致。",
+    "source": "https://hdlbits.01xz.net/wiki/tb/and",
+    "path": [
+      "验证：编写测试平台"
+    ],
+    "pathEn": [
+      "Verification: Writing Testbenches"
+    ],
+    "ports": "module top_module();",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "in[1]",
+            "wave": "0.1."
+          },
+          {
+            "name": "in[0]",
+            "wave": "0101"
+          },
+          {
+            "name": "out",
+            "wave": "0..1"
+          }
+        ],
+        "foot": {
+          "tick": [
+            "0",
+            "10",
+            "20",
+            "30"
+          ]
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "tb/tb2",
+    "order": 177,
+    "slug": "tb/tb2",
+    "title": "测试平台 2",
+    "titleEn": "Testbench2",
+    "description": "实例化 q7，按下方时序图驱动 clk、in、s[2:0]，观察 out。分别处理周期时钟和非周期输入激励。",
+    "source": "https://hdlbits.01xz.net/wiki/tb/tb2",
+    "path": [
+      "验证：编写测试平台"
+    ],
+    "pathEn": [
+      "Verification: Writing Testbenches"
+    ],
+    "ports": "module top_module();",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "lhlhlhlhlhlhlhlh"
+          },
+          {
+            "name": "in",
+            "wave": "0...1.0.1.....0."
+          },
+          {
+            "name": "s",
+            "wave": "=.=.=.=.=.......",
+            "data": [
+              "2",
+              "6",
+              "2",
+              "7",
+              "0"
+            ]
+          }
+        ],
+        "foot": {
+          "tick": [
+            "0",
+            "5",
+            "10",
+            "15",
+            "20",
+            "25",
+            "30",
+            "35",
+            "40",
+            "45",
+            "50",
+            "55",
+            "60",
+            "65",
+            "70",
+            "75"
+          ]
+        },
+        "config": {
+          "hscale": 1
+        }
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "tb/tff",
+    "order": 178,
+    "slug": "tb/tff",
+    "title": "测试平台：T 触发器",
+    "titleEn": "T flip-flop",
+    "description": "实例化 tff，先施加高有效同步复位，再通过 t 使 q 翻转到 1。复位需跨越有效时钟边沿；只有 t=1 的有效边沿才翻转。",
+    "source": "https://hdlbits.01xz.net/wiki/tb/tff",
+    "path": [
+      "验证：编写测试平台"
+    ],
+    "pathEn": [
+      "Verification: Writing Testbenches"
+    ],
+    "ports": "module top_module ();",
+    "images": [],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "cs450/timer",
+    "order": 179,
+    "slug": "cs450/timer",
+    "title": "CS450：递减定时器",
+    "titleEn": "cs450/timer",
+    "description": "load 有效时将十位 data 装入计数器，可在计时过程中重新装载。否则每拍减 1，减至 0 后停止；tc 在计数为 0 时有效。load 优先。",
+    "source": "https://hdlbits.01xz.net/wiki/cs450/timer",
+    "path": [
+      "CS450 扩展练习"
+    ],
+    "pathEn": [
+      "CS450"
+    ],
+    "ports": "module top_module(\n\tinput clk, \n\tinput load, \n\tinput [9:0] data, \n\toutput tc\n);",
+    "images": [],
+    "waves": [
+      {
+        "signal": [
+          [
+            "Inputs",
+            {
+              "name": "clk",
+              "wave": "ppppppppp"
+            },
+            {
+              "name": "load",
+              "wave": "010......"
+            },
+            {
+              "name": "data",
+              "wave": "x=x......",
+              "data": [
+                "3"
+              ]
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Internal",
+            {
+              "name": "counter",
+              "wave": "x.====...",
+              "data": [
+                "3",
+                "2",
+                "1",
+                "0"
+              ]
+            }
+          ],
+          {
+            "name": ""
+          },
+          [
+            "Outputs",
+            {
+              "name": "tc",
+              "wave": "0....1..."
+            }
+          ],
+          {
+            "name": ""
+          }
+        ]
+      }
+    ],
+    "tables": []
+  },
+  {
+    "id": "cs450/counter_2bc",
+    "order": 180,
+    "slug": "cs450/counter_2bc",
+    "title": "CS450：两位饱和计数器",
+    "titleEn": "cs450/counter_2bc",
+    "description": "train_valid=1 时，train_taken=1 向上计数，否则向下计数；范围限定为 0～3，不能回绕。未训练时保持。高有效异步 areset 将 state 复位为 01（弱不跳转）。",
+    "source": "https://hdlbits.01xz.net/wiki/cs450/counter_2bc",
+    "path": [
+      "CS450 扩展练习"
+    ],
+    "pathEn": [
+      "CS450"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,\n    input train_valid,\n    input train_taken,\n    output [1:0] state\n);",
+    "images": [
+      "/assets/b5463a2e7bb5.png"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "cs450/history_shift",
+    "order": 181,
+    "slug": "cs450/history_shift",
+    "title": "CS450：全局历史寄存器",
+    "titleEn": "cs450/history_shift",
+    "description": "保存 32 位分支历史，predict_valid 时从低位移入 predict_taken。train_mispredicted 时恢复 train_history 并追加 train_taken，该恢复优先于新预测。异步 areset 清零，predict_history[0] 为最近分支。",
+    "source": "https://hdlbits.01xz.net/wiki/cs450/history_shift",
+    "path": [
+      "CS450 扩展练习"
+    ],
+    "pathEn": [
+      "CS450"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,\n\n    input predict_valid,\n    input predict_taken,\n    output [31:0] predict_history,\n\n    input train_mispredicted,\n    input train_taken,\n    input [31:0] train_history\n);",
+    "images": [
+      "/assets/fc3a29c31892.php"
+    ],
+    "waves": [],
+    "tables": []
+  },
+  {
+    "id": "cs450/gshare",
+    "order": 182,
+    "slug": "cs450/gshare",
+    "title": "CS450：gshare 分支预测器",
+    "titleEn": "cs450/gshare",
+    "description": "用 PC 与全局历史异或索引模式历史表，表项为两位饱和计数器。预测读取训练前的表项；训练在上升沿更新。误预测时按训练历史和真实方向恢复历史，优先于推测更新。异步复位把表项置 01、历史清零。完整接口时序请结合原题核对。",
+    "source": "https://hdlbits.01xz.net/wiki/cs450/gshare",
+    "path": [
+      "CS450 扩展练习"
+    ],
+    "pathEn": [
+      "CS450"
+    ],
+    "ports": "module top_module(\n    input clk,\n    input areset,\n\n    input  predict_valid,\n    input  [6:0] predict_pc,\n    output predict_taken,\n    output [6:0] predict_history,\n\n    input train_valid,\n    input train_taken,\n    input train_mispredicted,\n    input [6:0] train_history,\n    input [6:0] train_pc\n);",
+    "images": [
+      "/assets/08874a331c52.php"
+    ],
+    "waves": [
+      {
+        "signal": [
+          {
+            "name": "clk",
+            "wave": "p........"
+          },
+          {
+            "name": "train_valid",
+            "wave": "0..1.0..."
+          },
+          {
+            "name": "train_pc ^ train_history",
+            "wave": "x..=.x...",
+            "data": [
+              "0"
+            ]
+          },
+          {
+            "name": "train_taken",
+            "wave": "x..1.x...",
+            "node": "...a...."
+          },
+          {
+            "name": "pht[0]",
+            "wave": "=...==...",
+            "data": [
+              "1",
+              "2",
+              "3"
+            ],
+            "node": "....b...."
+          },
+          {
+            "name": "predict_valid",
+            "wave": "0..1..0.."
+          },
+          {
+            "name": "predict_pc ^ predict_history",
+            "wave": "x..=..x..",
+            "data": [
+              "0"
+            ]
+          },
+          {
+            "name": "predict_taken",
+            "wave": "x..01.x..",
+            "node": "....c...."
+          }
+        ],
+        "edge": [
+          "a-~>b train",
+          "b->c predict"
+        ],
+        "foot": {
+          "text": "Training and predicting using PHT entry 0 at the same time",
+          "tock": 1
+        }
+      }
+    ],
+    "tables": []
+  }
+]
