@@ -6,7 +6,7 @@
 
 ### Windows 单文件桌面版
 
-从 [Releases](https://github.com/YJR66/hdlbits-zh/releases/latest) 下载 `HDLBits-中文练习.exe`。源码仓库不包含生成的 EXE 或第三方运行时二进制。
+从 [Releases](https://github.com/YJR66/hdlbits-zh/releases/latest) 下载 `HDLBits-zh-Windows-x64.exe`（与本地构建的 `HDLBits-中文练习.exe` 相同）。源码仓库不包含生成的 EXE 或第三方运行时二进制。
 
 双击 `HDLBits-中文练习.exe` 即可打开独立桌面窗口，无需安装 Node.js、Python、浏览器或 Icarus Verilog。适用于 Windows 10/11 x64；题库、图像、波形组件及编译仿真运行时均已内置，使用时无需联网。
 
