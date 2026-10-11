@@ -7,7 +7,7 @@
   "linux": {
     "target": [{"target": "AppImage", "arch": ["x64"]}, {"target": "deb", "arch": ["x64"]}],
     "executableName": "hdlbits-zh",
-    "artifactName": "HDLBits-zh-${version}-linux-${arch}.${ext}",
+    "artifactName": "HDLBits-zh-${version}-linux-x64.${ext}",
     "category": "Education",
     "icon": "dist/assets/logo270.png",
     "maintainer": "YJR66 <115932716+YJR66@users.noreply.github.com>",

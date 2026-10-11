@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-22.04
     timeout-minutes: 25
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
@@ -40,7 +40,7 @@ jobs:
           xvfb-run -a bash scripts/test_linux_package.sh output/appimage/squashfs-root/hdlbits-zh
       - name: Create checksums
         run: cd release && sha256sum *.AppImage *.deb > SHA256SUMS-linux.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: HDLBits-linux-x64
           path: |
